@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">battleship</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_start">StartActivity</string>
+    <string name="title_activity_last">LastActivity</string>
+    <string name="green_blob">Green Blob</string>
+</resources>

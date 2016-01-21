@@ -34,18 +34,6 @@ public class MainActivity extends AppCompatActivity {
         name = intent.getStringExtra(StartActivity.NAME_EXTRA);
         board = new Board();
         setupBtnClicks();
-        imageSwitcher = (ImageSwitcher)findViewById(R.id.imageSwitcher1);
-        changeImageSource();
-    }
-
-    private void changeImageSource() {
-//        imageSwitcher.setImageResource(R.drawable.blue);
-        imageSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
-            public View makeView() {
-                ImageView myView = new ImageView(getApplicationContext());
-                return myView;
-            }
-        });
     }
 
     private void setupBtnClicks(){

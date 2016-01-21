@@ -7,7 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewSwitcher;
 
 public class MainActivity extends AppCompatActivity {
     //version 3
@@ -21,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Board board;
     private String name;
-    private static Button btn2;
+    private ImageSwitcher imageSwitcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,18 @@ public class MainActivity extends AppCompatActivity {
         name = intent.getStringExtra(StartActivity.NAME_EXTRA);
         board = new Board();
         setupBtnClicks();
+        imageSwitcher = (ImageSwitcher)findViewById(R.id.imageSwitcher1);
+        changeImageSource();
+    }
+
+    private void changeImageSource() {
+//        imageSwitcher.setImageResource(R.drawable.blue);
+        imageSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+            public View makeView() {
+                ImageView myView = new ImageView(getApplicationContext());
+                return myView;
+            }
+        });
     }
 
     private void setupBtnClicks(){

@@ -11,13 +11,13 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="150dp"
+            android:layout_width="155dp"
             android:layout_height="fill_parent"
             android:layout_gravity="left">
 
             <Button
                 android:id="@+id/btn_1"
-                android:layout_width="154dp"
+                android:layout_width="fill_parent"
                 android:layout_height="77dp"
                 android:textColor="#FFF"
                 android:background="#240"
@@ -26,25 +26,25 @@
             </Button>
             <Button
                 android:id="@+id/btn_2"
-                android:layout_width="154dp"
+                android:layout_width="fill_parent"
                 android:layout_height="77dp"
                 android:textColor="#FFF"
                 android:background="#240"
-                android:text="torpido"
+                android:text="torpedo"
                 android:textSize="18sp" >
             </Button>
             <Button
                 android:id="@+id/btn_3"
-                android:layout_width="154dp"
+                android:layout_width="fill_parent"
                 android:layout_height="77dp"
                 android:textColor="#FFF"
                 android:background="#240"
-                android:text="messile"
+                android:text="missile"
                 android:textSize="18sp" >
             </Button>
             <Button
                 android:id="@+id/btn_4"
-                android:layout_width="154dp"
+                android:layout_width="fill_parent"
                 android:layout_height="77dp"
                 android:textColor="#FFF"
                 android:background="#240"
@@ -53,7 +53,7 @@
             </Button>
             <Button
                 android:id="@+id/btn_5"
-                android:layout_width="154dp"
+                android:layout_width="fill_parent"
                 android:layout_height="77dp"
                 android:textColor="#FFF"
                 android:background="#240"
@@ -62,11 +62,11 @@
             </Button>
             <Button
                 android:id="@+id/btn_6"
-                android:layout_width="154dp"
+                android:layout_width="fill_parent"
                 android:layout_height="77dp"
                 android:textColor="#FFF"
                 android:background="#240"
-                android:text="ghost"
+                android:text="go ghost"
                 android:textSize="18sp" >
             </Button>
         </LinearLayout>
@@ -78,12 +78,6 @@
             android:layout_margin="73dp"
             android:layout_gravity="center"
             android:background="@drawable/green_blob">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView"
-                android:contentDescription="Green blob" />
         </ImageSwitcher>
 
         <GridLayout

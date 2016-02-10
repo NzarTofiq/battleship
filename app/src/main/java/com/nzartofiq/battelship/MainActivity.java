@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             R.id.sq_46,R.id.sq_47,R.id.sq_48,R.id.sq_49,R.id.sq_50,R.id.sq_51,R.id.sq_52,R.id.sq_53,R.id.sq_54,
             R.id.sq_55, R.id.sq_56,R.id.sq_57,R.id.sq_58,R.id.sq_59,R.id.sq_60,R.id.sq_61,R.id.sq_62,R.id.sq_63,
             R.id.sq_64,R.id.sq_65, R.id.sq_66,R.id.sq_67,R.id.sq_68,R.id.sq_69,R.id.sq_70,R.id.sq_71,R.id.sq_72,
-            R.id.sq_73,R.id.sq_74, R.id.sq_75,R.id.sq_76,R.id.sq_77,R.id.sq_78,R.id.sq_79,R.id.sq_80,R.id.sq_80
+            R.id.sq_73,R.id.sq_74, R.id.sq_75,R.id.sq_76,R.id.sq_77,R.id.sq_78,R.id.sq_79,R.id.sq_80,R.id.sq_81
     };
 
     private Board board;

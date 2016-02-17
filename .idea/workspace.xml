@@ -33,10 +33,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fbc72b7-69c3-432e-99e2-a17dcc60f1bc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="battleship.iws" />
@@ -2010,7 +2006,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455731973591</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="complete working layout">
+      <created>1455750570615</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1455750570615</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2064,7 +2066,8 @@
     <MESSAGE value="image switcher not working" />
     <MESSAGE value="half working layout" />
     <MESSAGE value="3/4 working layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="3/4 working layout" />
+    <MESSAGE value="complete working layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete working layout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

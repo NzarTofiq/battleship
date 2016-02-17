@@ -4,4 +4,9 @@
     <string name="title_activity_start">StartActivity</string>
     <string name="title_activity_last">LastActivity</string>
     <string name="green_blob">Green Blob</string>
+    <string name="torpedo">torpedo</string>
+    <string name="move_ships">move ships</string>
+    <string name="missile">missile</string>
+    <string name="bombard">bombard</string>
+    <string name="invisible">go ghost</string>
 </resources>

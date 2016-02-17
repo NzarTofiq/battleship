@@ -1,4 +1,4 @@
-package com.nzartofiq.battelship;
+package com.nzartofiq.battleship;
 
 import android.content.Intent;
 import android.os.Bundle;

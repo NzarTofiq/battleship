@@ -1,4 +1,4 @@
-package com.nzartofiq.battelship;
+package com.nzartofiq.battleship;
 
 public class Board {
     public static final int MAX = 36;

@@ -9,4 +9,7 @@
     <string name="missile">missile</string>
     <string name="bombard">bombard</string>
     <string name="invisible">go ghost</string>
+    <string name="blue_square">Blue square</string>
+    <string name="weapon_desc_move_ship">Use a turn to move one of your ships</string>
+    <string name="weapon_header_move_ship">Move a ship</string>
 </resources>

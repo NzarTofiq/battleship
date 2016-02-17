@@ -1,7 +1,7 @@
 package com.nzartofiq.battelship;
 
 public class Board {
-    public static final int MAX = 81;
+    public static final int MAX = 36;
     private int[] board = new int[MAX];
 
     //constructor

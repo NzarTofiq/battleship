@@ -34,8 +34,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fbc72b7-69c3-432e-99e2-a17dcc60f1bc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="battleship.iws" />
@@ -2026,7 +2024,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455752380194</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="I have no clue to what I was doing as opposed to what i'm meant to be doing all I know now is I can't change the squares array to arraylist">
+      <created>1455757511425</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1455757511426</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2115,7 +2119,8 @@
     <MESSAGE value="complete working layout" />
     <MESSAGE value="complete working layout api 22 nexus 7 2012" />
     <MESSAGE value="refactored because of a spelling mistake battelship changed to battleship" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored because of a spelling mistake battelship changed to battleship" />
+    <MESSAGE value="I have no clue to what I was doing as opposed to what i'm meant to be doing all I know now is I can't change the squares array to arraylist" />
+    <option name="LAST_COMMIT_MESSAGE" value="I have no clue to what I was doing as opposed to what i'm meant to be doing all I know now is I can't change the squares array to arraylist" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

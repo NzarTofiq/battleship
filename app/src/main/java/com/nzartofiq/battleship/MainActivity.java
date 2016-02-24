@@ -6,10 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageSwitcher;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "My Tag ";
     //version 3
     private static int[] squares = {
         R.id.sq_1,R.id.sq_2,R.id.sq_3,R.id.sq_4,R.id.sq_5,R.id.sq_6,R.id.sq_7,R.id.sq_8,R.id.sq_9,
@@ -20,17 +20,24 @@ public class MainActivity extends AppCompatActivity {
 
     private Board board;
     private String name;
-    private ImageSwitcher imageSwitcher;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            Log.d(TAG, "onCreate() Restoring previous state");
+            /* restore state */
+        } else {
+            Log.d(TAG, "onCreate() No saved state available");
+            /* initialize app */
+        }
         setContentView(R.layout.content_main);
         Intent intent = getIntent();
         name = intent.getStringExtra(StartActivity.NAME_EXTRA);
         board = new Board();
         setupBtnClicks();
-        Log.i("tag", String.valueOf(squares[0]));
+        Log.d(TAG, String.valueOf(squares[0]));
     }
 
     private void setupBtnClicks(){

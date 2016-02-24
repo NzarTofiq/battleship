@@ -33,8 +33,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fbc72b7-69c3-432e-99e2-a17dcc60f1bc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="battleship.iws" />
@@ -2090,7 +2088,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456352853662</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="random ships added">
+      <created>1456356942742</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1456356942742</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2181,7 +2185,8 @@
     <MESSAGE value="refactored because of a spelling mistake battelship changed to battleship" />
     <MESSAGE value="I have no clue to what I was doing as opposed to what i'm meant to be doing all I know now is I can't change the squares array to arraylist" />
     <MESSAGE value="Enum added to state the state of a square" />
-    <option name="LAST_COMMIT_MESSAGE" value="Enum added to state the state of a square" />
+    <MESSAGE value="random ships added" />
+    <option name="LAST_COMMIT_MESSAGE" value="random ships added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

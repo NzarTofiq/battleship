@@ -22,4 +22,7 @@ public class Board {
         }
         return true;
     }
+    public int getSquareState(int pos) {
+        return squares[pos].hashCode();
+    }
 }

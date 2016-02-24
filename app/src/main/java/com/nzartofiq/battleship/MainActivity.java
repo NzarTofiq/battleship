@@ -3,13 +3,15 @@ package com.nzartofiq.battleship;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "My Tag ";
+    private static final int NUMBER_OF_SHIPS = 3;
     //version 3
     private static int[] squares = {
         R.id.sq_1,R.id.sq_2,R.id.sq_3,R.id.sq_4,R.id.sq_5,R.id.sq_6,R.id.sq_7,R.id.sq_8,R.id.sq_9,
@@ -25,19 +27,36 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (savedInstanceState != null) {
-            Log.d(TAG, "onCreate() Restoring previous state");
-            /* restore state */
-        } else {
-            Log.d(TAG, "onCreate() No saved state available");
-            /* initialize app */
-        }
         setContentView(R.layout.content_main);
         Intent intent = getIntent();
         name = intent.getStringExtra(StartActivity.NAME_EXTRA);
         board = new Board();
         setupBtnClicks();
-        Log.d(TAG, String.valueOf(squares[0]));
+
+        putShipsOnBoard();
+    }
+
+    private void putShipsOnBoard() {
+        ArrayList randoms = getRandomNumbers();
+        for (int i = 0; i<squares.length; i++){
+            if (randoms.contains(i)){
+                ImageButton iBtn = (ImageButton) findViewById(squares[i]);
+                iBtn.setImageResource(R.drawable.ship);
+            }
+        }
+    }
+
+    private ArrayList getRandomNumbers() {
+        ArrayList randoms = new ArrayList();
+        for (int i = 0; i < NUMBER_OF_SHIPS; i++){
+            int r = (int) Math.floor(Math.random()*squares.length);
+            if (randoms.contains(r)){
+                getRandomNumbers();
+            } else {
+                randoms.add(r);
+            }
+        }
+        return randoms;
     }
 
     private void setupBtnClicks(){

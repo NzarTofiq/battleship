@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 
 public class StartActivity extends AppCompatActivity {
-    public static final String NAME_EXTRA = "com.nzartofiq.startactivity.NAME";
+    public static final String NAME_EXTRA = "com.nzartofiq.StartActivity.NAME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,5 @@ public class StartActivity extends AppCompatActivity {
         String message = editText.getText().toString();
         intent.putExtra(NAME_EXTRA, message);
         startActivity(intent);
-
     }
-
 }

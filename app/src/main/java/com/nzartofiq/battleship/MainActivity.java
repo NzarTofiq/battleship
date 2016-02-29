@@ -7,10 +7,13 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "My Tag ";
+    private static final String TAG = "Manin activity ";
+
     //version 3
     private static int[] squares = {
         R.id.sq_1,R.id.sq_2,R.id.sq_3,R.id.sq_4,R.id.sq_5,R.id.sq_6,R.id.sq_7,R.id.sq_8,R.id.sq_9,
@@ -21,7 +24,12 @@ public class MainActivity extends AppCompatActivity {
 
     private Board board;
     private String name;
+    private Gson boardObject;
 
+    BoardType myBoard = BoardType.MY_BOARD;
+    BoardType yourBoard = BoardType.YOUR_BOARD;
+
+    public static final String BOARD_EXTRA = "com.nzartofiq.MainActivity.BOARD_EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

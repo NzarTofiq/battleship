@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "My Tag ";
-    private static final int NUMBER_OF_SHIPS = 3;
     //version 3
     private static int[] squares = {
         R.id.sq_1,R.id.sq_2,R.id.sq_3,R.id.sq_4,R.id.sq_5,R.id.sq_6,R.id.sq_7,R.id.sq_8,R.id.sq_9,
@@ -31,32 +30,33 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         name = intent.getStringExtra(StartActivity.NAME_EXTRA);
         board = new Board();
+        setUpBoard(findViewById(R.id.board_grid));
         setupBtnClicks();
-
-        putShipsOnBoard();
     }
 
-    private void putShipsOnBoard() {
-        ArrayList randoms = getRandomNumbers();
-        for (int i = 0; i<squares.length; i++){
-            if (randoms.contains(i)){
-                ImageButton iBtn = (ImageButton) findViewById(squares[i]);
+    private void setUpBoard(View v){
+        for (int i = 0; i < Board.MAX; i++) {
+            updateSquareView(v, i);
+        }
+    }
+
+    public void updateSquareView(View v, int i){
+        ImageButton iBtn = (ImageButton) v.findViewById(squares[i]);
+        switch (board.getSquareTypes(i)) {
+            case SHIP:
                 iBtn.setImageResource(R.drawable.ship);
-            }
+                break;
+            case FREE:
+                iBtn.setImageResource(R.drawable.green);
+                break;
+            case WRECK:
+                iBtn.setImageResource(R.drawable.ship_wrecked);
+                break;
+            case USED:
+                iBtn.setImageResource(R.drawable.red);
+            default:
+                iBtn.setImageResource(R.drawable.blue);
         }
-    }
-
-    private ArrayList getRandomNumbers() {
-        ArrayList randoms = new ArrayList();
-        for (int i = 0; i < NUMBER_OF_SHIPS; i++){
-            int r = (int) Math.floor(Math.random()*squares.length);
-            if (randoms.contains(r)){
-                getRandomNumbers();
-            } else {
-                randoms.add(r);
-            }
-        }
-        return randoms;
     }
 
     private void setupBtnClicks(){
@@ -65,10 +65,10 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     ImageButton iBtn = (ImageButton) v;
-                    iBtn.setImageResource(R.drawable.yellow);
                     for (int i = 0; i < Board.MAX; i++) {
                         if (squares[i] == iBtn.getId()) {
                             board.updateBoard(i);
+                            updateSquareView(v, i);
                             iBtn.setOnClickListener(null);
                         }
                     }

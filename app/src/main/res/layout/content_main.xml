@@ -116,7 +116,8 @@
             android:columnCount="6"
             android:rowCount="6"
             android:alignmentMode="alignMargins"
-            android:layout_marginTop="6dp">
+            android:layout_marginTop="6dp"
+            android:id="@+id/board_grid">
 
             <ImageButton
                 android:id="@+id/sq_1"

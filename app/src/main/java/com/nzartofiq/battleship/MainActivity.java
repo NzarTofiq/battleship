@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     switch (aBtn.getId()) {
                         case R.id.move:
                             move();
+                            board.getCircle();
                             break;
                         case R.id.torpedo:
                             torpedo();

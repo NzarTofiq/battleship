@@ -12,4 +12,6 @@
     <string name="blue_square">Blue square</string>
     <string name="weapon_desc_move_ship">Use a turn to move one of your ships</string>
     <string name="weapon_header_move_ship">Move a ship</string>
+    <string name="radar">RADAR</string>
+    <string name="action">Action</string>
 </resources>

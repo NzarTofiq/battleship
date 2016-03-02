@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="AndroidLayouts">
     <shared>
       <config>
@@ -32,14 +35,20 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fbc72b7-69c3-432e-99e2-a17dcc60f1bc" name="Default" comment="Gson board object added to main activity, not doing anything yet">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/BoardType.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_2_4.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/assets/blueSq.jpeg" afterPath="" />
+    <list default="true" id="6fbc72b7-69c3-432e-99e2-a17dcc60f1bc" name="Default" comment="Actions list sort of working, needs testing">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bombard75_75.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/invisible75_75.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/missile75_75.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/move75_75.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/radar75_75.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/torpedo75_75.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ship.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ship.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ship_wrecked.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ship_wrecked.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/StartActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/StartActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/SquareType.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/SquareType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="battleship.iws" />
@@ -68,23 +77,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.35457063">
+              <caret line="94" column="48" selection-start-line="94" selection-start-column="48" selection-end-line="94" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2687#3306#0" expanded="true" />
+                <element signature="e#3305#3306#0" expanded="true" />
+                <element signature="e#3475#4493#0" expanded="true" />
+                <element signature="e#4492#4493#0" expanded="true" />
+                <element signature="e#5045#5280#0" expanded="true" />
+                <element signature="e#5279#5280#0" expanded="true" />
+                <element signature="e#5926#6194#0" expanded="true" />
+                <element signature="e#6193#6194#0" expanded="true" />
+                <element signature="e#6553#6861#0" expanded="true" />
+                <element signature="e#6860#6861#0" expanded="true" />
+                <element signature="e#7183#7451#0" expanded="true" />
+                <element signature="e#7450#7451#0" expanded="true" />
+                <element signature="e#7810#8118#0" expanded="true" />
+                <element signature="e#8117#8118#0" expanded="true" />
+                <element signature="e#8471#8862#0" expanded="true" />
+                <element signature="e#8861#8862#0" expanded="true" />
+                <element signature="e#9233#9615#0" expanded="true" />
+                <element signature="e#9614#9615#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BoardType.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BoardType.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/BoardType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.077922076">
+            <state vertical-scroll-proportion="0.0">
               <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -104,10 +141,12 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
+              <caret line="51" column="55" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
               <folding>
-                <element signature="e#574#575#0" expanded="true" />
-                <element signature="e#611#612#0" expanded="true" />
+                <element signature="e#675#676#0" expanded="true" />
+                <element signature="e#712#713#0" expanded="true" />
+                <element signature="e#1766#1767#0" expanded="true" />
+                <element signature="e#1809#1810#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,16 +164,72 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="content_main.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
-          <provider editor-type-id="text-editor">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="108" column="39" selection-start-line="108" selection-start-column="39" selection-end-line="108" selection-end-column="39" />
+              <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
               <folding />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="android-designer">
+        </entry>
+      </file>
+      <file leaf-file-name="content_main.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
+          <provider editor-type-id="android-designer">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.24138">
+              <caret line="90" column="62" selection-start-line="90" selection-start-column="62" selection-end-line="90" selection-end-column="62" />
+              <folding>
+                <element signature="e#1009#1029#0" expanded="true" />
+                <element signature="e#1387#1404#0" expanded="true" />
+                <element signature="e#1762#1779#0" expanded="true" />
+                <element signature="e#2137#2154#0" expanded="true" />
+                <element signature="e#2514#2533#0" expanded="true" />
+                <element signature="e#2890#2905#0" expanded="true" />
+                <element signature="e#3557#3573#0" expanded="true" />
+                <element signature="e#3813#3846#0" expanded="true" />
+                <element signature="e#4139#4170#0" expanded="true" />
+                <element signature="e#4937#4958#0" expanded="true" />
+                <element signature="e#5247#5268#0" expanded="true" />
+                <element signature="e#5557#5578#0" expanded="true" />
+                <element signature="e#5867#5888#0" expanded="true" />
+                <element signature="e#6177#6198#0" expanded="true" />
+                <element signature="e#6487#6508#0" expanded="true" />
+                <element signature="e#6797#6818#0" expanded="true" />
+                <element signature="e#7107#7128#0" expanded="true" />
+                <element signature="e#7417#7438#0" expanded="true" />
+                <element signature="e#7728#7749#0" expanded="true" />
+                <element signature="e#8039#8060#0" expanded="true" />
+                <element signature="e#8350#8371#0" expanded="true" />
+                <element signature="e#8661#8682#0" expanded="true" />
+                <element signature="e#8972#8993#0" expanded="true" />
+                <element signature="e#9283#9304#0" expanded="true" />
+                <element signature="e#9594#9615#0" expanded="true" />
+                <element signature="e#9905#9926#0" expanded="true" />
+                <element signature="e#10216#10237#0" expanded="true" />
+                <element signature="e#10527#10548#0" expanded="true" />
+                <element signature="e#10838#10859#0" expanded="true" />
+                <element signature="e#11149#11170#0" expanded="true" />
+                <element signature="e#11460#11481#0" expanded="true" />
+                <element signature="e#11771#11792#0" expanded="true" />
+                <element signature="e#12082#12103#0" expanded="true" />
+                <element signature="e#12393#12414#0" expanded="true" />
+                <element signature="e#12704#12725#0" expanded="true" />
+                <element signature="e#13015#13036#0" expanded="true" />
+                <element signature="e#13326#13347#0" expanded="true" />
+                <element signature="e#13637#13658#0" expanded="true" />
+                <element signature="e#13948#13969#0" expanded="true" />
+                <element signature="e#14259#14280#0" expanded="true" />
+                <element signature="e#14570#14591#0" expanded="true" />
+                <element signature="e#14881#14902#0" expanded="true" />
+                <element signature="e#15192#15213#0" expanded="true" />
+                <element signature="e#15503#15524#0" expanded="true" />
+                <element signature="e#15814#15835#0" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -144,6 +239,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="layoutResourceFile_vertical" />
+        <option value="valueResourceFile" />
         <option value="Enum" />
       </list>
     </option>
@@ -157,7 +254,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="putting-ships-on-board" />
+        <entry key="$PROJECT_DIR$" value="gson" />
       </map>
     </option>
     <push-targets>
@@ -1622,11 +1719,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battelship/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Square.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/SquareType.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/BoardType.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/StartActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/ActionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_action.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/PlayerType.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/ActionType.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/SquareType.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java" />
       </list>
     </option>
@@ -1638,6 +1739,25 @@
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="729" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Android Lint</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>AndroidLintWrongViewCast</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1662,59 +1782,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="battleship" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="battleship" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="battleship" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="battleship" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="battleship" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -1791,17 +1860,161 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="battleship" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="battleship" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="battleship" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="battleship" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="battleship" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="battleship" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="content_main.xml" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="battleship" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="battleship" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="battleship" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="battleship" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_7_API_22" />
     <property name="DEBUGGABLE_DEVICE" value="Nexus_7_API_22 [emulator-5554]" />
     <property name="DEBUGGABLE_PROCESS" value="com.nzartofiq.battleship" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/main 2" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -2082,8 +2295,23 @@
       <option name="project" value="LOCAL" />
       <updated>1456779867351</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Gson board object added to main activity, not doing anything yet">
+      <created>1456782567109</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1456782567109</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="729" extended-state="6" />
@@ -2091,21 +2319,23 @@
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46786633" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3213703" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.365416" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46818924" sideWeight="0.49676898" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39966273" sideWeight="0.503231" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32626426" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -2114,9 +2344,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46786633" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288364" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -2133,6 +2361,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="image switcher not working" />
     <MESSAGE value="half working layout" />
     <MESSAGE value="3/4 working layout" />
@@ -2144,67 +2373,16 @@
     <MESSAGE value="random ships added" />
     <MESSAGE value="clicking on ship squares changes the pic to ship wreck." />
     <MESSAGE value="Gson board object added to main activity, not doing anything yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gson board object added to main activity, not doing anything yet" />
+    <MESSAGE value="Actions list sort of working, needs testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Actions list sort of working, needs testing" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ship.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="37" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="108" column="39" selection-start-line="108" selection-start-column="39" selection-end-line="108" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding>
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/StartActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ship_wrecked.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -2223,14 +2401,60 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="108" column="39" selection-start-line="108" selection-start-column="39" selection-end-line="108" selection-end-column="39" />
-          <folding />
+          <folding>
+            <element signature="e#1009#1029#0" expanded="true" />
+            <element signature="e#1387#1404#0" expanded="true" />
+            <element signature="e#1762#1779#0" expanded="true" />
+            <element signature="e#2137#2154#0" expanded="true" />
+            <element signature="e#2514#2533#0" expanded="true" />
+            <element signature="e#2890#2905#0" expanded="true" />
+            <element signature="e#3557#3573#0" expanded="true" />
+            <element signature="e#3813#3846#0" expanded="true" />
+            <element signature="e#4139#4170#0" expanded="true" />
+            <element signature="e#4937#4958#0" expanded="true" />
+            <element signature="e#5247#5268#0" expanded="true" />
+            <element signature="e#5557#5578#0" expanded="true" />
+            <element signature="e#5867#5888#0" expanded="true" />
+            <element signature="e#6177#6198#0" expanded="true" />
+            <element signature="e#6487#6508#0" expanded="true" />
+            <element signature="e#6797#6818#0" expanded="true" />
+            <element signature="e#7107#7128#0" expanded="true" />
+            <element signature="e#7417#7438#0" expanded="true" />
+            <element signature="e#7728#7749#0" expanded="true" />
+            <element signature="e#8039#8060#0" expanded="true" />
+            <element signature="e#8350#8371#0" expanded="true" />
+            <element signature="e#8661#8682#0" expanded="true" />
+            <element signature="e#8972#8993#0" expanded="true" />
+            <element signature="e#9283#9304#0" expanded="true" />
+            <element signature="e#9594#9615#0" expanded="true" />
+            <element signature="e#9905#9926#0" expanded="true" />
+            <element signature="e#10216#10237#0" expanded="true" />
+            <element signature="e#10527#10548#0" expanded="true" />
+            <element signature="e#10838#10859#0" expanded="true" />
+            <element signature="e#11149#11170#0" expanded="true" />
+            <element signature="e#11460#11481#0" expanded="true" />
+            <element signature="e#11771#11792#0" expanded="true" />
+            <element signature="e#12082#12103#0" expanded="true" />
+            <element signature="e#12393#12414#0" expanded="true" />
+            <element signature="e#12704#12725#0" expanded="true" />
+            <element signature="e#13015#13036#0" expanded="true" />
+            <element signature="e#13326#13347#0" expanded="true" />
+            <element signature="e#13637#13658#0" expanded="true" />
+            <element signature="e#13948#13969#0" expanded="true" />
+            <element signature="e#14259#14280#0" expanded="true" />
+            <element signature="e#14570#14591#0" expanded="true" />
+            <element signature="e#14881#14902#0" expanded="true" />
+            <element signature="e#15192#15213#0" expanded="true" />
+            <element signature="e#15503#15524#0" expanded="true" />
+            <element signature="e#15814#15835#0" expanded="true" />
+          </folding>
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java">
@@ -2238,8 +2462,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding>
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+            <element signature="e#1766#1767#0" expanded="true" />
+            <element signature="e#1809#1810#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2260,6 +2486,24 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2687#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
+            <element signature="e#3475#4493#0" expanded="true" />
+            <element signature="e#4492#4493#0" expanded="true" />
+            <element signature="e#5045#5280#0" expanded="true" />
+            <element signature="e#5279#5280#0" expanded="true" />
+            <element signature="e#5926#6194#0" expanded="true" />
+            <element signature="e#6193#6194#0" expanded="true" />
+            <element signature="e#6553#6861#0" expanded="true" />
+            <element signature="e#6860#6861#0" expanded="true" />
+            <element signature="e#7183#7451#0" expanded="true" />
+            <element signature="e#7450#7451#0" expanded="true" />
+            <element signature="e#7810#8118#0" expanded="true" />
+            <element signature="e#8117#8118#0" expanded="true" />
+            <element signature="e#8471#8862#0" expanded="true" />
+            <element signature="e#8861#8862#0" expanded="true" />
+            <element signature="e#9233#9615#0" expanded="true" />
+            <element signature="e#9614#9615#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2272,14 +2516,60 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="108" column="39" selection-start-line="108" selection-start-column="39" selection-end-line="108" selection-end-column="39" />
-          <folding />
+          <folding>
+            <element signature="e#1009#1029#0" expanded="true" />
+            <element signature="e#1387#1404#0" expanded="true" />
+            <element signature="e#1762#1779#0" expanded="true" />
+            <element signature="e#2137#2154#0" expanded="true" />
+            <element signature="e#2514#2533#0" expanded="true" />
+            <element signature="e#2890#2905#0" expanded="true" />
+            <element signature="e#3557#3573#0" expanded="true" />
+            <element signature="e#3813#3846#0" expanded="true" />
+            <element signature="e#4139#4170#0" expanded="true" />
+            <element signature="e#4937#4958#0" expanded="true" />
+            <element signature="e#5247#5268#0" expanded="true" />
+            <element signature="e#5557#5578#0" expanded="true" />
+            <element signature="e#5867#5888#0" expanded="true" />
+            <element signature="e#6177#6198#0" expanded="true" />
+            <element signature="e#6487#6508#0" expanded="true" />
+            <element signature="e#6797#6818#0" expanded="true" />
+            <element signature="e#7107#7128#0" expanded="true" />
+            <element signature="e#7417#7438#0" expanded="true" />
+            <element signature="e#7728#7749#0" expanded="true" />
+            <element signature="e#8039#8060#0" expanded="true" />
+            <element signature="e#8350#8371#0" expanded="true" />
+            <element signature="e#8661#8682#0" expanded="true" />
+            <element signature="e#8972#8993#0" expanded="true" />
+            <element signature="e#9283#9304#0" expanded="true" />
+            <element signature="e#9594#9615#0" expanded="true" />
+            <element signature="e#9905#9926#0" expanded="true" />
+            <element signature="e#10216#10237#0" expanded="true" />
+            <element signature="e#10527#10548#0" expanded="true" />
+            <element signature="e#10838#10859#0" expanded="true" />
+            <element signature="e#11149#11170#0" expanded="true" />
+            <element signature="e#11460#11481#0" expanded="true" />
+            <element signature="e#11771#11792#0" expanded="true" />
+            <element signature="e#12082#12103#0" expanded="true" />
+            <element signature="e#12393#12414#0" expanded="true" />
+            <element signature="e#12704#12725#0" expanded="true" />
+            <element signature="e#13015#13036#0" expanded="true" />
+            <element signature="e#13326#13347#0" expanded="true" />
+            <element signature="e#13637#13658#0" expanded="true" />
+            <element signature="e#13948#13969#0" expanded="true" />
+            <element signature="e#14259#14280#0" expanded="true" />
+            <element signature="e#14570#14591#0" expanded="true" />
+            <element signature="e#14881#14902#0" expanded="true" />
+            <element signature="e#15192#15213#0" expanded="true" />
+            <element signature="e#15503#15524#0" expanded="true" />
+            <element signature="e#15814#15835#0" expanded="true" />
+          </folding>
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java">
@@ -2287,8 +2577,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding>
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+            <element signature="e#1766#1767#0" expanded="true" />
+            <element signature="e#1809#1810#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2309,6 +2601,24 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2687#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
+            <element signature="e#3475#4493#0" expanded="true" />
+            <element signature="e#4492#4493#0" expanded="true" />
+            <element signature="e#5045#5280#0" expanded="true" />
+            <element signature="e#5279#5280#0" expanded="true" />
+            <element signature="e#5926#6194#0" expanded="true" />
+            <element signature="e#6193#6194#0" expanded="true" />
+            <element signature="e#6553#6861#0" expanded="true" />
+            <element signature="e#6860#6861#0" expanded="true" />
+            <element signature="e#7183#7451#0" expanded="true" />
+            <element signature="e#7450#7451#0" expanded="true" />
+            <element signature="e#7810#8118#0" expanded="true" />
+            <element signature="e#8117#8118#0" expanded="true" />
+            <element signature="e#8471#8862#0" expanded="true" />
+            <element signature="e#8861#8862#0" expanded="true" />
+            <element signature="e#9233#9615#0" expanded="true" />
+            <element signature="e#9614#9615#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2321,14 +2631,60 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="108" column="39" selection-start-line="108" selection-start-column="39" selection-end-line="108" selection-end-column="39" />
-          <folding />
+          <folding>
+            <element signature="e#1009#1029#0" expanded="true" />
+            <element signature="e#1387#1404#0" expanded="true" />
+            <element signature="e#1762#1779#0" expanded="true" />
+            <element signature="e#2137#2154#0" expanded="true" />
+            <element signature="e#2514#2533#0" expanded="true" />
+            <element signature="e#2890#2905#0" expanded="true" />
+            <element signature="e#3557#3573#0" expanded="true" />
+            <element signature="e#3813#3846#0" expanded="true" />
+            <element signature="e#4139#4170#0" expanded="true" />
+            <element signature="e#4937#4958#0" expanded="true" />
+            <element signature="e#5247#5268#0" expanded="true" />
+            <element signature="e#5557#5578#0" expanded="true" />
+            <element signature="e#5867#5888#0" expanded="true" />
+            <element signature="e#6177#6198#0" expanded="true" />
+            <element signature="e#6487#6508#0" expanded="true" />
+            <element signature="e#6797#6818#0" expanded="true" />
+            <element signature="e#7107#7128#0" expanded="true" />
+            <element signature="e#7417#7438#0" expanded="true" />
+            <element signature="e#7728#7749#0" expanded="true" />
+            <element signature="e#8039#8060#0" expanded="true" />
+            <element signature="e#8350#8371#0" expanded="true" />
+            <element signature="e#8661#8682#0" expanded="true" />
+            <element signature="e#8972#8993#0" expanded="true" />
+            <element signature="e#9283#9304#0" expanded="true" />
+            <element signature="e#9594#9615#0" expanded="true" />
+            <element signature="e#9905#9926#0" expanded="true" />
+            <element signature="e#10216#10237#0" expanded="true" />
+            <element signature="e#10527#10548#0" expanded="true" />
+            <element signature="e#10838#10859#0" expanded="true" />
+            <element signature="e#11149#11170#0" expanded="true" />
+            <element signature="e#11460#11481#0" expanded="true" />
+            <element signature="e#11771#11792#0" expanded="true" />
+            <element signature="e#12082#12103#0" expanded="true" />
+            <element signature="e#12393#12414#0" expanded="true" />
+            <element signature="e#12704#12725#0" expanded="true" />
+            <element signature="e#13015#13036#0" expanded="true" />
+            <element signature="e#13326#13347#0" expanded="true" />
+            <element signature="e#13637#13658#0" expanded="true" />
+            <element signature="e#13948#13969#0" expanded="true" />
+            <element signature="e#14259#14280#0" expanded="true" />
+            <element signature="e#14570#14591#0" expanded="true" />
+            <element signature="e#14881#14902#0" expanded="true" />
+            <element signature="e#15192#15213#0" expanded="true" />
+            <element signature="e#15503#15524#0" expanded="true" />
+            <element signature="e#15814#15835#0" expanded="true" />
+          </folding>
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java">
@@ -2336,8 +2692,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
           <folding>
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+            <element signature="e#1766#1767#0" expanded="true" />
+            <element signature="e#1809#1810#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2358,6 +2716,24 @@
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="20" selection-end-column="106" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2687#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
+            <element signature="e#3475#4493#0" expanded="true" />
+            <element signature="e#4492#4493#0" expanded="true" />
+            <element signature="e#5045#5280#0" expanded="true" />
+            <element signature="e#5279#5280#0" expanded="true" />
+            <element signature="e#5926#6194#0" expanded="true" />
+            <element signature="e#6193#6194#0" expanded="true" />
+            <element signature="e#6553#6861#0" expanded="true" />
+            <element signature="e#6860#6861#0" expanded="true" />
+            <element signature="e#7183#7451#0" expanded="true" />
+            <element signature="e#7450#7451#0" expanded="true" />
+            <element signature="e#7810#8118#0" expanded="true" />
+            <element signature="e#8117#8118#0" expanded="true" />
+            <element signature="e#8471#8862#0" expanded="true" />
+            <element signature="e#8861#8862#0" expanded="true" />
+            <element signature="e#9233#9615#0" expanded="true" />
+            <element signature="e#9614#9615#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2370,23 +2746,71 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="82" column="46" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="82" column="46" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
+          <folding>
+            <element signature="e#1009#1029#0" expanded="true" />
+            <element signature="e#1387#1404#0" expanded="true" />
+            <element signature="e#1762#1779#0" expanded="true" />
+            <element signature="e#2137#2154#0" expanded="true" />
+            <element signature="e#2514#2533#0" expanded="true" />
+            <element signature="e#2890#2905#0" expanded="true" />
+            <element signature="e#3557#3573#0" expanded="true" />
+            <element signature="e#3813#3846#0" expanded="true" />
+            <element signature="e#4139#4170#0" expanded="true" />
+            <element signature="e#4937#4958#0" expanded="true" />
+            <element signature="e#5247#5268#0" expanded="true" />
+            <element signature="e#5557#5578#0" expanded="true" />
+            <element signature="e#5867#5888#0" expanded="true" />
+            <element signature="e#6177#6198#0" expanded="true" />
+            <element signature="e#6487#6508#0" expanded="true" />
+            <element signature="e#6797#6818#0" expanded="true" />
+            <element signature="e#7107#7128#0" expanded="true" />
+            <element signature="e#7417#7438#0" expanded="true" />
+            <element signature="e#7728#7749#0" expanded="true" />
+            <element signature="e#8039#8060#0" expanded="true" />
+            <element signature="e#8350#8371#0" expanded="true" />
+            <element signature="e#8661#8682#0" expanded="true" />
+            <element signature="e#8972#8993#0" expanded="true" />
+            <element signature="e#9283#9304#0" expanded="true" />
+            <element signature="e#9594#9615#0" expanded="true" />
+            <element signature="e#9905#9926#0" expanded="true" />
+            <element signature="e#10216#10237#0" expanded="true" />
+            <element signature="e#10527#10548#0" expanded="true" />
+            <element signature="e#10838#10859#0" expanded="true" />
+            <element signature="e#11149#11170#0" expanded="true" />
+            <element signature="e#11460#11481#0" expanded="true" />
+            <element signature="e#11771#11792#0" expanded="true" />
+            <element signature="e#12082#12103#0" expanded="true" />
+            <element signature="e#12393#12414#0" expanded="true" />
+            <element signature="e#12704#12725#0" expanded="true" />
+            <element signature="e#13015#13036#0" expanded="true" />
+            <element signature="e#13326#13347#0" expanded="true" />
+            <element signature="e#13637#13658#0" expanded="true" />
+            <element signature="e#13948#13969#0" expanded="true" />
+            <element signature="e#14259#14280#0" expanded="true" />
+            <element signature="e#14570#14591#0" expanded="true" />
+            <element signature="e#14881#14902#0" expanded="true" />
+            <element signature="e#15192#15213#0" expanded="true" />
+            <element signature="e#15503#15524#0" expanded="true" />
+            <element signature="e#15814#15835#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
           <folding>
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+            <element signature="e#1766#1767#0" expanded="true" />
+            <element signature="e#1809#1810#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2407,6 +2831,24 @@
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="20" selection-end-column="106" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2687#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
+            <element signature="e#3475#4493#0" expanded="true" />
+            <element signature="e#4492#4493#0" expanded="true" />
+            <element signature="e#5045#5280#0" expanded="true" />
+            <element signature="e#5279#5280#0" expanded="true" />
+            <element signature="e#5926#6194#0" expanded="true" />
+            <element signature="e#6193#6194#0" expanded="true" />
+            <element signature="e#6553#6861#0" expanded="true" />
+            <element signature="e#6860#6861#0" expanded="true" />
+            <element signature="e#7183#7451#0" expanded="true" />
+            <element signature="e#7450#7451#0" expanded="true" />
+            <element signature="e#7810#8118#0" expanded="true" />
+            <element signature="e#8117#8118#0" expanded="true" />
+            <element signature="e#8471#8862#0" expanded="true" />
+            <element signature="e#8861#8862#0" expanded="true" />
+            <element signature="e#9233#9615#0" expanded="true" />
+            <element signature="e#9614#9615#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2419,14 +2861,60 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#1009#1029#0" expanded="true" />
+            <element signature="e#1387#1404#0" expanded="true" />
+            <element signature="e#1762#1779#0" expanded="true" />
+            <element signature="e#2137#2154#0" expanded="true" />
+            <element signature="e#2514#2533#0" expanded="true" />
+            <element signature="e#2890#2905#0" expanded="true" />
+            <element signature="e#3557#3573#0" expanded="true" />
+            <element signature="e#3813#3846#0" expanded="true" />
+            <element signature="e#4139#4170#0" expanded="true" />
+            <element signature="e#4937#4958#0" expanded="true" />
+            <element signature="e#5247#5268#0" expanded="true" />
+            <element signature="e#5557#5578#0" expanded="true" />
+            <element signature="e#5867#5888#0" expanded="true" />
+            <element signature="e#6177#6198#0" expanded="true" />
+            <element signature="e#6487#6508#0" expanded="true" />
+            <element signature="e#6797#6818#0" expanded="true" />
+            <element signature="e#7107#7128#0" expanded="true" />
+            <element signature="e#7417#7438#0" expanded="true" />
+            <element signature="e#7728#7749#0" expanded="true" />
+            <element signature="e#8039#8060#0" expanded="true" />
+            <element signature="e#8350#8371#0" expanded="true" />
+            <element signature="e#8661#8682#0" expanded="true" />
+            <element signature="e#8972#8993#0" expanded="true" />
+            <element signature="e#9283#9304#0" expanded="true" />
+            <element signature="e#9594#9615#0" expanded="true" />
+            <element signature="e#9905#9926#0" expanded="true" />
+            <element signature="e#10216#10237#0" expanded="true" />
+            <element signature="e#10527#10548#0" expanded="true" />
+            <element signature="e#10838#10859#0" expanded="true" />
+            <element signature="e#11149#11170#0" expanded="true" />
+            <element signature="e#11460#11481#0" expanded="true" />
+            <element signature="e#11771#11792#0" expanded="true" />
+            <element signature="e#12082#12103#0" expanded="true" />
+            <element signature="e#12393#12414#0" expanded="true" />
+            <element signature="e#12704#12725#0" expanded="true" />
+            <element signature="e#13015#13036#0" expanded="true" />
+            <element signature="e#13326#13347#0" expanded="true" />
+            <element signature="e#13637#13658#0" expanded="true" />
+            <element signature="e#13948#13969#0" expanded="true" />
+            <element signature="e#14259#14280#0" expanded="true" />
+            <element signature="e#14570#14591#0" expanded="true" />
+            <element signature="e#14881#14902#0" expanded="true" />
+            <element signature="e#15192#15213#0" expanded="true" />
+            <element signature="e#15503#15524#0" expanded="true" />
+            <element signature="e#15814#15835#0" expanded="true" />
+          </folding>
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java">
@@ -2434,8 +2922,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
           <folding>
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+            <element signature="e#1766#1767#0" expanded="true" />
+            <element signature="e#1809#1810#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2456,6 +2946,24 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2687#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
+            <element signature="e#3475#4493#0" expanded="true" />
+            <element signature="e#4492#4493#0" expanded="true" />
+            <element signature="e#5045#5280#0" expanded="true" />
+            <element signature="e#5279#5280#0" expanded="true" />
+            <element signature="e#5926#6194#0" expanded="true" />
+            <element signature="e#6193#6194#0" expanded="true" />
+            <element signature="e#6553#6861#0" expanded="true" />
+            <element signature="e#6860#6861#0" expanded="true" />
+            <element signature="e#7183#7451#0" expanded="true" />
+            <element signature="e#7450#7451#0" expanded="true" />
+            <element signature="e#7810#8118#0" expanded="true" />
+            <element signature="e#8117#8118#0" expanded="true" />
+            <element signature="e#8471#8862#0" expanded="true" />
+            <element signature="e#8861#8862#0" expanded="true" />
+            <element signature="e#9233#9615#0" expanded="true" />
+            <element signature="e#9614#9615#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2465,8 +2973,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
           <folding>
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+            <element signature="e#1766#1767#0" expanded="true" />
+            <element signature="e#1809#1810#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2487,6 +2997,24 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2687#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
+            <element signature="e#3475#4493#0" expanded="true" />
+            <element signature="e#4492#4493#0" expanded="true" />
+            <element signature="e#5045#5280#0" expanded="true" />
+            <element signature="e#5279#5280#0" expanded="true" />
+            <element signature="e#5926#6194#0" expanded="true" />
+            <element signature="e#6193#6194#0" expanded="true" />
+            <element signature="e#6553#6861#0" expanded="true" />
+            <element signature="e#6860#6861#0" expanded="true" />
+            <element signature="e#7183#7451#0" expanded="true" />
+            <element signature="e#7450#7451#0" expanded="true" />
+            <element signature="e#7810#8118#0" expanded="true" />
+            <element signature="e#8117#8118#0" expanded="true" />
+            <element signature="e#8471#8862#0" expanded="true" />
+            <element signature="e#8861#8862#0" expanded="true" />
+            <element signature="e#9233#9615#0" expanded="true" />
+            <element signature="e#9614#9615#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2496,8 +3024,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
           <folding>
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+            <element signature="e#1766#1767#0" expanded="true" />
+            <element signature="e#1809#1810#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2518,6 +3048,24 @@
           <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2687#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
+            <element signature="e#3475#4493#0" expanded="true" />
+            <element signature="e#4492#4493#0" expanded="true" />
+            <element signature="e#5045#5280#0" expanded="true" />
+            <element signature="e#5279#5280#0" expanded="true" />
+            <element signature="e#5926#6194#0" expanded="true" />
+            <element signature="e#6193#6194#0" expanded="true" />
+            <element signature="e#6553#6861#0" expanded="true" />
+            <element signature="e#6860#6861#0" expanded="true" />
+            <element signature="e#7183#7451#0" expanded="true" />
+            <element signature="e#7450#7451#0" expanded="true" />
+            <element signature="e#7810#8118#0" expanded="true" />
+            <element signature="e#8117#8118#0" expanded="true" />
+            <element signature="e#8471#8862#0" expanded="true" />
+            <element signature="e#8861#8862#0" expanded="true" />
+            <element signature="e#9233#9615#0" expanded="true" />
+            <element signature="e#9614#9615#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2527,8 +3075,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+            <element signature="e#1766#1767#0" expanded="true" />
+            <element signature="e#1809#1810#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2539,6 +3089,24 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2687#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
+            <element signature="e#3475#4493#0" expanded="true" />
+            <element signature="e#4492#4493#0" expanded="true" />
+            <element signature="e#5045#5280#0" expanded="true" />
+            <element signature="e#5279#5280#0" expanded="true" />
+            <element signature="e#5926#6194#0" expanded="true" />
+            <element signature="e#6193#6194#0" expanded="true" />
+            <element signature="e#6553#6861#0" expanded="true" />
+            <element signature="e#6860#6861#0" expanded="true" />
+            <element signature="e#7183#7451#0" expanded="true" />
+            <element signature="e#7450#7451#0" expanded="true" />
+            <element signature="e#7810#8118#0" expanded="true" />
+            <element signature="e#8117#8118#0" expanded="true" />
+            <element signature="e#8471#8862#0" expanded="true" />
+            <element signature="e#8861#8862#0" expanded="true" />
+            <element signature="e#9233#9615#0" expanded="true" />
+            <element signature="e#9614#9615#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2567,33 +3135,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="108" column="39" selection-start-line="108" selection-start-column="39" selection-end-line="108" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/LastActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/SquareType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2607,21 +3155,133 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/BoardType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.077922076">
+        <state vertical-scroll-proportion="0.0">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/SquareType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="55" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
+          <folding>
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+            <element signature="e#1766#1767#0" expanded="true" />
+            <element signature="e#1809#1810#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.24138">
+          <caret line="90" column="62" selection-start-line="90" selection-start-column="62" selection-end-line="90" selection-end-column="62" />
+          <folding>
+            <element signature="e#1009#1029#0" expanded="true" />
+            <element signature="e#1387#1404#0" expanded="true" />
+            <element signature="e#1762#1779#0" expanded="true" />
+            <element signature="e#2137#2154#0" expanded="true" />
+            <element signature="e#2514#2533#0" expanded="true" />
+            <element signature="e#2890#2905#0" expanded="true" />
+            <element signature="e#3557#3573#0" expanded="true" />
+            <element signature="e#3813#3846#0" expanded="true" />
+            <element signature="e#4139#4170#0" expanded="true" />
+            <element signature="e#4937#4958#0" expanded="true" />
+            <element signature="e#5247#5268#0" expanded="true" />
+            <element signature="e#5557#5578#0" expanded="true" />
+            <element signature="e#5867#5888#0" expanded="true" />
+            <element signature="e#6177#6198#0" expanded="true" />
+            <element signature="e#6487#6508#0" expanded="true" />
+            <element signature="e#6797#6818#0" expanded="true" />
+            <element signature="e#7107#7128#0" expanded="true" />
+            <element signature="e#7417#7438#0" expanded="true" />
+            <element signature="e#7728#7749#0" expanded="true" />
+            <element signature="e#8039#8060#0" expanded="true" />
+            <element signature="e#8350#8371#0" expanded="true" />
+            <element signature="e#8661#8682#0" expanded="true" />
+            <element signature="e#8972#8993#0" expanded="true" />
+            <element signature="e#9283#9304#0" expanded="true" />
+            <element signature="e#9594#9615#0" expanded="true" />
+            <element signature="e#9905#9926#0" expanded="true" />
+            <element signature="e#10216#10237#0" expanded="true" />
+            <element signature="e#10527#10548#0" expanded="true" />
+            <element signature="e#10838#10859#0" expanded="true" />
+            <element signature="e#11149#11170#0" expanded="true" />
+            <element signature="e#11460#11481#0" expanded="true" />
+            <element signature="e#11771#11792#0" expanded="true" />
+            <element signature="e#12082#12103#0" expanded="true" />
+            <element signature="e#12393#12414#0" expanded="true" />
+            <element signature="e#12704#12725#0" expanded="true" />
+            <element signature="e#13015#13036#0" expanded="true" />
+            <element signature="e#13326#13347#0" expanded="true" />
+            <element signature="e#13637#13658#0" expanded="true" />
+            <element signature="e#13948#13969#0" expanded="true" />
+            <element signature="e#14259#14280#0" expanded="true" />
+            <element signature="e#14570#14591#0" expanded="true" />
+            <element signature="e#14881#14902#0" expanded="true" />
+            <element signature="e#15192#15213#0" expanded="true" />
+            <element signature="e#15503#15524#0" expanded="true" />
+            <element signature="e#15814#15835#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35457063">
+          <caret line="94" column="48" selection-start-line="94" selection-start-column="48" selection-end-line="94" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2687#3306#0" expanded="true" />
+            <element signature="e#3305#3306#0" expanded="true" />
+            <element signature="e#3475#4493#0" expanded="true" />
+            <element signature="e#4492#4493#0" expanded="true" />
+            <element signature="e#5045#5280#0" expanded="true" />
+            <element signature="e#5279#5280#0" expanded="true" />
+            <element signature="e#5926#6194#0" expanded="true" />
+            <element signature="e#6193#6194#0" expanded="true" />
+            <element signature="e#6553#6861#0" expanded="true" />
+            <element signature="e#6860#6861#0" expanded="true" />
+            <element signature="e#7183#7451#0" expanded="true" />
+            <element signature="e#7450#7451#0" expanded="true" />
+            <element signature="e#7810#8118#0" expanded="true" />
+            <element signature="e#8117#8118#0" expanded="true" />
+            <element signature="e#8471#8862#0" expanded="true" />
+            <element signature="e#8861#8862#0" expanded="true" />
+            <element signature="e#9233#9615#0" expanded="true" />
+            <element signature="e#9614#9615#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

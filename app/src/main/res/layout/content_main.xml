@@ -15,85 +15,82 @@
             android:orientation="vertical"
             android:layout_width="170sp"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical">
+            android:layout_gravity="left|center_vertical"
+            android:id="@+id/action_buttons_list">
 
             <Button
-                android:id="@+id/btn_1"
+                android:id="@+id/move"
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
                 android:textColor="#FFF"
                 android:background="#920"
                 android:layout_margin="3dp"
                 android:text="@string/move_ships"
-                android:textSize="25sp" >
-            </Button>
+                android:textSize="25sp" />
             <Button
-                android:id="@+id/btn_2"
+                android:id="@+id/torpedo"
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
                 android:textColor="#FFF"
                 android:background="#920"
                 android:layout_margin="3dp"
                 android:text="@string/torpedo"
-                android:textSize="25sp" >
-            </Button>
+                android:textSize="25sp" />
             <Button
-                android:id="@+id/btn_3"
+                android:id="@+id/missile"
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
                 android:textColor="#FFF"
                 android:background="#920"
                 android:layout_margin="3dp"
                 android:text="@string/missile"
-                android:textSize="25sp" >
-            </Button>
+                android:textSize="25sp" />
             <Button
-                android:id="@+id/btn_4"
+                android:id="@+id/bombard"
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
                 android:textColor="#FFF"
                 android:background="#920"
                 android:layout_margin="3dp"
                 android:text="@string/bombard"
-                android:textSize="25sp" >
-            </Button>
+                android:textSize="25sp" />
             <Button
-                android:id="@+id/btn_5"
-                android:layout_width="fill_parent"
-                android:layout_height="80dp"
-                android:textColor="#FFF"
-                android:background="#920"
-                android:layout_margin="3dp"
-                android:text="@string/bombard"
-                android:textSize="25sp" >
-            </Button>
-            <Button
-                android:id="@+id/btn_6"
+                android:id="@+id/invisible"
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
                 android:textColor="#FFF"
                 android:background="#920"
                 android:layout_margin="3dp"
                 android:text="@string/invisible"
-                android:textSize="25sp" >
-            </Button>
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/radar"
+                android:layout_width="fill_parent"
+                android:layout_height="80dp"
+                android:textColor="#FFF"
+                android:background="#920"
+                android:layout_margin="3dp"
+                android:text="@string/radar"
+                android:textSize="25sp" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="0">
 
-            <ImageSwitcher
-                android:id="@+id/imageSwitcher1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <ImageView
+                android:id="@+id/action_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="110dp"
                 android:layout_gravity="end|center_vertical"
-                android:background="@drawable/green_blob">
-            </ImageSwitcher>
+                android:background="@drawable/move75_75"
+                android:contentDescription="@string/action" />
             <TextView
+                android:id="@+id/action_header"
                 android:layout_width="match_parent"
                 android:layout_height="50sp"
                 android:textSize="20sp"
@@ -101,7 +98,7 @@
                 android:textAlignment="center"
                 android:textColor="#FFF"/>
             <TextView
-                android:id="@+id/txt_weapon_description"
+                android:id="@+id/action_description"
                 android:layout_width="match_parent"
                 android:layout_height="200sp"
                 android:text="@string/weapon_desc_move_ship"

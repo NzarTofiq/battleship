@@ -13,8 +13,8 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String BOARD_EXTRA = "com.nzartofiq.MainActivity.BOARD_EXTRA";
     private static final String TAG = "Main activity ";
-    private ArrayList<Integer> circle = new ArrayList<>();
     private static int[] actionBtns = {R.id.move, R.id.missile, R.id.torpedo, R.id.invisible, R.id.radar, R.id.bombard};
 
     //version 3
@@ -26,10 +26,9 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private static Board board;
+    private ArrayList<Integer> circle = new ArrayList<>();
     private String name;
     private Gson boardObject;
-
-    public static final String BOARD_EXTRA = "com.nzartofiq.MainActivity.BOARD_EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +42,13 @@ public class MainActivity extends AppCompatActivity {
         setupBtnClicks();
     }
 
-    private void setUpBoard(View v){
+    private void setUpBoard(View v) {
         for (int i = 0; i < Board.MAX; i++) {
             updateSquareView(v, i);
         }
     }
 
-    public void updateSquareView(View v, int i){
+    public void updateSquareView(View v, int i) {
         ImageButton iBtn = (ImageButton) v.findViewById(squares[i]);
         switch (board.getSquareTypes(i)) {
             case SHIP:
@@ -79,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void setupBtnClicks(){
-        for(int i=0;i< Board.MAX;i++){
+    private void setupBtnClicks() {
+        for (int i = 0; i < Board.MAX; i++) {
             findViewById(squares[i]).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -284,9 +283,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void lastActivity(){
-        Intent intent = new Intent(this,LastActivity.class);
-        TextView textMsg  = (TextView)findViewById(R.id.goodByMsg);
+    private void lastActivity() {
+        Intent intent = new Intent(this, LastActivity.class);
+        TextView textMsg = (TextView) findViewById(R.id.goodByMsg);
         intent.putExtra(StartActivity.NAME_EXTRA, name);
         startActivity(intent);
     }

@@ -7,402 +7,408 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:baselineAligned="false"
         android:orientation="horizontal"
-        android:weightSum="1"
-        android:baselineAligned="false">
+        android:weightSum="1">
 
         <LinearLayout
-            android:orientation="vertical"
+            android:id="@+id/action_buttons_list"
             android:layout_width="170sp"
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical"
-            android:id="@+id/action_buttons_list">
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/move"
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
-                android:textColor="#FFF"
-                android:background="#920"
                 android:layout_margin="3dp"
+                android:background="#920"
                 android:text="@string/move_ships"
+                android:textColor="#FFF"
                 android:textSize="25sp" />
+
             <Button
                 android:id="@+id/torpedo"
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
-                android:textColor="#FFF"
-                android:background="#920"
                 android:layout_margin="3dp"
+                android:background="#920"
                 android:text="@string/torpedo"
+                android:textColor="#FFF"
                 android:textSize="25sp" />
+
             <Button
                 android:id="@+id/missile"
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
-                android:textColor="#FFF"
-                android:background="#920"
                 android:layout_margin="3dp"
+                android:background="#920"
                 android:text="@string/missile"
+                android:textColor="#FFF"
                 android:textSize="25sp" />
+
             <Button
                 android:id="@+id/bombard"
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
-                android:textColor="#FFF"
-                android:background="#920"
                 android:layout_margin="3dp"
+                android:background="#920"
                 android:text="@string/bombard"
+                android:textColor="#FFF"
                 android:textSize="25sp" />
+
             <Button
                 android:id="@+id/invisible"
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
-                android:textColor="#FFF"
-                android:background="#920"
                 android:layout_margin="3dp"
+                android:background="#920"
                 android:text="@string/invisible"
+                android:textColor="#FFF"
                 android:textSize="25sp" />
 
             <Button
                 android:id="@+id/radar"
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
-                android:textColor="#FFF"
-                android:background="#920"
                 android:layout_margin="3dp"
+                android:background="#920"
                 android:text="@string/radar"
+                android:textColor="#FFF"
                 android:textSize="25sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0">
+            android:layout_weight="0"
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/action_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="110dp"
                 android:layout_gravity="end|center_vertical"
+                android:layout_margin="110dp"
                 android:background="@drawable/move75_75"
                 android:contentDescription="@string/action" />
+
             <TextView
                 android:id="@+id/action_header"
                 android:layout_width="match_parent"
                 android:layout_height="50sp"
-                android:textSize="20sp"
                 android:text="@string/weapon_header_move_ship"
                 android:textAlignment="center"
-                android:textColor="#FFF"/>
+                android:textColor="#FFF"
+                android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/action_description"
                 android:layout_width="match_parent"
                 android:layout_height="200sp"
                 android:text="@string/weapon_desc_move_ship"
                 android:textAlignment="center"
-                android:textColor="#FFF"/>
+                android:textColor="#FFF" />
         </LinearLayout>
 
         <GridLayout
+            android:id="@+id/board_grid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:columnCount="6"
-            android:rowCount="6"
-            android:alignmentMode="alignMargins"
             android:layout_marginTop="6dp"
-            android:id="@+id/board_grid">
+            android:alignmentMode="alignMargins"
+            android:columnCount="6"
+            android:orientation="horizontal"
+            android:rowCount="6">
 
             <ImageButton
                 android:id="@+id/sq_1"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_2"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_3"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_4"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_5"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_6"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_7"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_8"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_9"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_10"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_11"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_12"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_13"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_14"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_15"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_16"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_17"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_18"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_19"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_20"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_21"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_22"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_23"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_24"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_25"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_26"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_27"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_28"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_29"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_30"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_31"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_32"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_33"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_34"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_35"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
 
             <ImageButton
                 android:id="@+id/sq_36"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/blue"
                 android:layout_margin="3dp"
-                android:contentDescription="@string/blue_square"/>
+                android:contentDescription="@string/blue_square"
+                android:src="@drawable/blue" />
         </GridLayout>
     </LinearLayout>
 </FrameLayout>

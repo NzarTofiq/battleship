@@ -5,17 +5,16 @@ import android.util.Log;
 import java.util.ArrayList;
 
 public class Board {
-    public String TAG = "Board class";
     public static final int MAX = 36;
     private static final int NUMBER_OF_SHIPS = 3;
-
+    public String TAG = "Board class";
     private SquareType[] squareTypes = new SquareType[MAX];
 
     //constructor
-    public Board(){
+    public Board() {
         ArrayList<Integer> r = getRandomNumbers();
-        for(int i=0;i<MAX;i++){
-            if (r.contains(i)){
+        for (int i = 0; i < MAX; i++) {
+            if (r.contains(i)) {
                 squareTypes[i] = SquareType.SHIP;
             } else {
                 squareTypes[i] = SquareType.FREE;
@@ -27,8 +26,8 @@ public class Board {
         return squareTypes[i];
     }
 
-    public void updateBoard(int pos){
-        switch (squareTypes[pos]){
+    public void updateBoard(int pos) {
+        switch (squareTypes[pos]) {
             case FREE:
                 squareTypes[pos] = SquareType.USED;
                 break;
@@ -46,20 +45,20 @@ public class Board {
         }
     }
 
-    public boolean checkWin(){
-        for(SquareType i : squareTypes){
+    public boolean checkWin() {
+        for (SquareType i : squareTypes) {
             if (i == SquareType.FREE || i == SquareType.SHIP) {
-               return false;
-           }
+                return false;
+            }
         }
         return true;
     }
 
     private ArrayList<Integer> getRandomNumbers() {
         ArrayList<Integer> randoms = new ArrayList<>();
-        for (int i = 0; i < NUMBER_OF_SHIPS; i++){
+        for (int i = 0; i < NUMBER_OF_SHIPS; i++) {
             int r = (int) Math.floor(Math.random() * squareTypes.length);
-            if (randoms.contains(r)){
+            if (randoms.contains(r)) {
                 getRandomNumbers();
             } else {
                 randoms.add(r);

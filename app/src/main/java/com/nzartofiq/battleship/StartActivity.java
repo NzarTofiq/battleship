@@ -15,9 +15,9 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.content_start);
     }
 
-    public void startGame(View view){
-        Intent intent = new Intent(this,MainActivity.class);
-        EditText editText  = (EditText)findViewById(R.id.editName);
+    public void startGame(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        EditText editText = (EditText) findViewById(R.id.editName);
         String message = editText.getText().toString();
         intent.putExtra(NAME_EXTRA, message);
         startActivity(intent);

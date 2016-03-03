@@ -8,7 +8,6 @@ public class Board {
     public String TAG = "Board class";
     public static final int MAX = 36;
     private static final int NUMBER_OF_SHIPS = 3;
-    private static int CIRCLE_RADIUS = 3;
 
     private SquareType[] squareTypes = new SquareType[MAX];
 
@@ -73,47 +72,23 @@ public class Board {
         squareTypes[i] = squareType;
     }
 
-    public ArrayList getCircle() {
-        int j = 22;
+    public ArrayList getCircle(int centrePos) {
         ArrayList<Integer> circle = new ArrayList<>();
-        int boardWidth = (int) Math.sqrt(MAX);
-        int boardHeight = (int) Math.sqrt(MAX);
-        int xj = j % boardWidth;
-        int yj = j / boardHeight + 1;
-        for (int i = 0; i < 360; i++) {
-            Double xRad;
-            Double yRad;
-            for (int k = 1; k < MAX + 1; k++) {
-                int xk = k % boardWidth;
-                int yk = k / boardHeight;
-                if (i <= 90) {
-                    xRad = xj + (Math.cos(i) * CIRCLE_RADIUS);
-                    yRad = yj + (Math.sin(i) * CIRCLE_RADIUS);
-                    if (xk <= xRad && xk >= xj && yk <= yRad && yk >= yj && !(circle.contains(k))) {
-                        circle.add(k);
-                    }
-                } else if (i <= 180) {
-                    xRad = xj - (Math.cos(i) * CIRCLE_RADIUS);
-                    yRad = yj + (Math.sin(i) * CIRCLE_RADIUS);
-                    if (xk >= xRad && xk <= xj && yk <= yRad && yk >= yj && !(circle.contains(k))) {
-                        circle.add(k);
-                    }
-                } else if (i <= 270) {
-                    xRad = xj - (Math.cos(i) * CIRCLE_RADIUS);
-                    yRad = yj - (Math.sin(i) * CIRCLE_RADIUS);
-                    if (xk >= xRad && xk <= xj && yk >= yRad && yk <= yj && !(circle.contains(k))) {
-                        circle.add(k);
-                    }
-                } else {
-                    xRad = xj + (Math.cos(i) * CIRCLE_RADIUS);
-                    yRad = yj - (Math.sin(i) * CIRCLE_RADIUS);
-                    if (xk <= xRad && xk >= xj && yk >= yRad && yk <= yj && !(circle.contains(k))) {
-                        circle.add(k);
-                    }
+        Double gridWidth = Math.sqrt(MAX);
+        Double centreX = centrePos % gridWidth;
+        Double centreY = Math.ceil(centrePos / gridWidth);
+        Double radius = 2.0;
+        for (int i = 1; i < gridWidth + 1; i++) {
+            for (int j = 1; j < gridWidth + 1; j++) {
+                Double xDist = Math.abs(i - centreX);
+                Double yDist = Math.abs(j - centreY);
+                int square = (int) ((j * gridWidth) + i);
+                if (xDist <= radius && yDist <= radius && !(circle.contains(square)) && square <= MAX) {
+                    circle.add(square);
                 }
             }
         }
-        Log.d(TAG, circle.toString());
+        Log.d(TAG, String.valueOf(circle));
         return circle;
     }
 }

@@ -10,9 +10,11 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Main activity ";
-
+    private ArrayList<Integer> circle = new ArrayList<>();
     private static int[] actionBtns = {R.id.move, R.id.missile, R.id.torpedo, R.id.invisible, R.id.radar, R.id.bombard};
 
     //version 3
@@ -70,6 +72,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void updateAllSquareViews() {
+        for (int i = 0; i < Board.MAX; i++) {
+            View square = findViewById(squares[i]);
+            updateSquareView(square, i);
+        }
+    }
+
     private void setupBtnClicks(){
         for(int i=0;i< Board.MAX;i++){
             findViewById(squares[i]).setOnClickListener(new View.OnClickListener() {
@@ -100,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
                     switch (aBtn.getId()) {
                         case R.id.move:
                             move();
-                            board.getCircle();
                             break;
                         case R.id.torpedo:
                             torpedo();
@@ -198,23 +206,27 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < Board.MAX; i++) {
             final ImageButton iBtn = (ImageButton) findViewById(squares[i]);
             if (board.getSquareTypes(i) == SquareType.SHIP) {
+                final int finalI = i;
                 iBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         ImageButton shipBtn = (ImageButton) view;
-                        torpedoNextClick(shipBtn);
+                        torpedoNextClick(shipBtn, finalI);
                     }
                 });
             }
         }
     }
 
-    private void torpedoNextClick(ImageButton shipBtn) {
+    private void torpedoNextClick(ImageButton shipBtn, int pos) {
         shipBtn.setOnClickListener(null);
+        circle = board.getCircle(pos);
         for (int i = 0; i < Board.MAX; i++) {
             final int hitPos = i;
+            board.setSquareType(i, SquareType.AVAILABLE);
+            updateAllSquareViews();
             ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-            if (shipBtn != iBtn) {
+            if (shipBtn != iBtn && circle.contains(i)) {
                 iBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

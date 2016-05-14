@@ -3,6 +3,7 @@ package com.nzartofiq.battleship;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Board {
     public static final int MAX = 36;
@@ -56,13 +57,11 @@ public class Board {
 
     private ArrayList<Integer> getRandomNumbers() {
         ArrayList<Integer> randoms = new ArrayList<>();
+        Random r = new Random();
         for (int i = 0; i < NUMBER_OF_SHIPS; i++) {
-            int r = (int) Math.floor(Math.random() * squareTypes.length);
-            if (randoms.contains(r)) {
-                getRandomNumbers();
-            } else {
-                randoms.add(r);
-            }
+            Integer next = r.nextInt(MAX) + 1;
+            Log.d(TAG, String.valueOf(next));
+            randoms.add(next);
         }
         return randoms;
     }
@@ -71,23 +70,39 @@ public class Board {
         squareTypes[i] = squareType;
     }
 
-    public ArrayList getCircle(int centrePos) {
+    public ArrayList<Integer> getCircle(int centrePos) {
         ArrayList<Integer> circle = new ArrayList<>();
-        Double gridWidth = Math.sqrt(MAX);
-        Double centreX = centrePos % gridWidth;
-        Double centreY = Math.ceil(centrePos / gridWidth);
-        Double radius = 2.0;
-        for (int i = 1; i < gridWidth + 1; i++) {
-            for (int j = 1; j < gridWidth + 1; j++) {
-                Double xDist = Math.abs(i - centreX);
-                Double yDist = Math.abs(j - centreY);
-                int square = (int) ((j * gridWidth) + i);
-                if (xDist <= radius && yDist <= radius && !(circle.contains(square)) && square <= MAX) {
-                    circle.add(square);
+        centrePos = 1;
+        Double CIRCLE_ERROR = 0.45;
+
+        int width = (int) Math.sqrt(MAX);
+        int centerX = centrePos % width + 1;
+        int centerY = (int) Math.ceil(centrePos + 1 / width);
+        for (int pX = 1; pX <= width; pX++) {
+            for (int pY = 1; pY <= width; pY++) {
+                int r = 2;
+                int dX = Math.abs(pX - centerX) >= Math.abs(centerX - pX) ? Math.abs(pX - centerX) : Math.abs(centerX - pX);
+                int dY = Math.abs(pY - centerY) >= Math.abs(centerY - pY) ? Math.abs(pY - centerY) : Math.abs(centerY - pY);
+                int sqNum = (int) Math.floor((pY * width) + (width - pX));
+                Log.d("px", String.valueOf(pX));
+                Log.d("py", String.valueOf(pY));
+                if (dX == 0 && dY <= r) {
+                    /*Log.d("dx", String.valueOf(dX));
+                    Log.d("dy", String.valueOf(dY));
+                    Log.d("r", String.valueOf(r));*/
+                    setSquareType(sqNum, SquareType.AVAILABLE);
+                } else if (dX <= r && dY == 0) {
+                    setSquareType(sqNum, SquareType.AVAILABLE);
+                } else {
+                    for (int angle = 1; angle < 90; angle++) {
+                        r = (int) ((Math.cos(angle) + CIRCLE_ERROR) * r);
+                        if (dX <= r && dY <= r) {
+                            setSquareType(sqNum, SquareType.AVAILABLE);
+                        }
+                    }
                 }
             }
         }
-        Log.d(TAG, String.valueOf(circle));
         return circle;
     }
 }

@@ -167,6 +167,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void missile() {
+        board.getCircle(1);
+        updateAllSquareViews();
         removeOnClickListeners();
         for (int i = 0; i < Board.MAX; i++) {
             final ImageButton iBtn = (ImageButton) findViewById(squares[i]);
@@ -219,13 +221,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void torpedoNextClick(ImageButton shipBtn, int pos) {
         shipBtn.setOnClickListener(null);
-        circle = board.getCircle(pos);
         for (int i = 0; i < Board.MAX; i++) {
             final int hitPos = i;
-            board.setSquareType(i, SquareType.AVAILABLE);
             updateAllSquareViews();
             ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-            if (shipBtn != iBtn && circle.contains(i)) {
+            if (shipBtn != iBtn) {
                 iBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

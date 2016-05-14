@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void missile() {
-        board.getCircle(1);
+        board.getCircle(15);
         updateAllSquareViews();
         removeOnClickListeners();
         for (int i = 0; i < Board.MAX; i++) {

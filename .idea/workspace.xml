@@ -35,17 +35,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6fbc72b7-69c3-432e-99e2-a17dcc60f1bc" name="Default" comment="Code reformatted">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/libs/gson-2.2.4.jar" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/torpido.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bombard75_75.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bombard75_75.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/missile75_75.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/missile75_75.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/move75_75.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/move75_75.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/radar75_75.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/radar75_75.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/torpedo75_75.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/torpedo75_75.png" />
+    <list default="true" id="6fbc72b7-69c3-432e-99e2-a17dcc60f1bc" name="Default" comment="Random fixed">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="battleship.iws" />
@@ -74,11 +66,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44280443">
-              <caret line="61" column="50" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="27" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -118,14 +110,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.740741">
-              <caret line="259" column="37" selection-start-line="259" selection-start-column="37" selection-end-line="259" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.12295082">
+              <caret line="169" column="28" selection-start-line="169" selection-start-column="28" selection-end-line="169" selection-end-column="28" />
               <folding>
-                <element signature="e#9679#10061#0" expanded="true" />
-                <element signature="e#10060#10061#0" expanded="true" />
+                <element signature="e#2980#3599#0" expanded="true" />
+                <element signature="e#3598#3599#0" expanded="true" />
+                <element signature="e#3770#4788#0" expanded="true" />
+                <element signature="e#4787#4788#0" expanded="true" />
+                <element signature="e#5340#5575#0" expanded="true" />
+                <element signature="e#5574#5575#0" expanded="true" />
+                <element signature="e#6909#7217#0" expanded="true" />
+                <element signature="e#7216#7217#0" expanded="true" />
+                <element signature="e#9680#10062#0" expanded="true" />
+                <element signature="e#10061#10062#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1625,9 +1625,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout-xlarge/content_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_start.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -2249,7 +2249,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457009496038</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Random fixed">
+      <created>1463216152452</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1463216152452</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2263,20 +2269,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="729" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5122349" sideWeight="0.4951535" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5122349" sideWeight="0.4951535" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46818924" sideWeight="0.49676898" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33278957" sideWeight="0.5048465" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28548124" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -2325,7 +2331,8 @@
     <MESSAGE value="Creating a circle is much harder than I though" />
     <MESSAGE value="Getting a circle, STILL!!" />
     <MESSAGE value="Code reformatted" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code reformatted" />
+    <MESSAGE value="Random fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Random fixed" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -2373,8 +2380,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="169" column="27" selection-start-line="169" selection-start-column="27" selection-end-line="169" selection-end-column="27" />
           <folding>
-            <element signature="e#9679#10061#0" expanded="true" />
-            <element signature="e#10060#10061#0" expanded="true" />
+            <element signature="e#2980#3599#0" expanded="true" />
+            <element signature="e#3598#3599#0" expanded="true" />
+            <element signature="e#3770#4788#0" expanded="true" />
+            <element signature="e#4787#4788#0" expanded="true" />
+            <element signature="e#5340#5575#0" expanded="true" />
+            <element signature="e#5574#5575#0" expanded="true" />
+            <element signature="e#6909#7217#0" expanded="true" />
+            <element signature="e#7216#7217#0" expanded="true" />
+            <element signature="e#9680#10062#0" expanded="true" />
+            <element signature="e#10061#10062#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2418,8 +2433,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="169" column="27" selection-start-line="169" selection-start-column="27" selection-end-line="169" selection-end-column="27" />
           <folding>
-            <element signature="e#9679#10061#0" expanded="true" />
-            <element signature="e#10060#10061#0" expanded="true" />
+            <element signature="e#2980#3599#0" expanded="true" />
+            <element signature="e#3598#3599#0" expanded="true" />
+            <element signature="e#3770#4788#0" expanded="true" />
+            <element signature="e#4787#4788#0" expanded="true" />
+            <element signature="e#5340#5575#0" expanded="true" />
+            <element signature="e#5574#5575#0" expanded="true" />
+            <element signature="e#6909#7217#0" expanded="true" />
+            <element signature="e#7216#7217#0" expanded="true" />
+            <element signature="e#9680#10062#0" expanded="true" />
+            <element signature="e#10061#10062#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2463,8 +2486,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="169" column="27" selection-start-line="169" selection-start-column="27" selection-end-line="169" selection-end-column="27" />
           <folding>
-            <element signature="e#9679#10061#0" expanded="true" />
-            <element signature="e#10060#10061#0" expanded="true" />
+            <element signature="e#2980#3599#0" expanded="true" />
+            <element signature="e#3598#3599#0" expanded="true" />
+            <element signature="e#3770#4788#0" expanded="true" />
+            <element signature="e#4787#4788#0" expanded="true" />
+            <element signature="e#5340#5575#0" expanded="true" />
+            <element signature="e#5574#5575#0" expanded="true" />
+            <element signature="e#6909#7217#0" expanded="true" />
+            <element signature="e#7216#7217#0" expanded="true" />
+            <element signature="e#9680#10062#0" expanded="true" />
+            <element signature="e#10061#10062#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2508,8 +2539,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="169" column="27" selection-start-line="169" selection-start-column="27" selection-end-line="169" selection-end-column="27" />
           <folding>
-            <element signature="e#9679#10061#0" expanded="true" />
-            <element signature="e#10060#10061#0" expanded="true" />
+            <element signature="e#2980#3599#0" expanded="true" />
+            <element signature="e#3598#3599#0" expanded="true" />
+            <element signature="e#3770#4788#0" expanded="true" />
+            <element signature="e#4787#4788#0" expanded="true" />
+            <element signature="e#5340#5575#0" expanded="true" />
+            <element signature="e#5574#5575#0" expanded="true" />
+            <element signature="e#6909#7217#0" expanded="true" />
+            <element signature="e#7216#7217#0" expanded="true" />
+            <element signature="e#9680#10062#0" expanded="true" />
+            <element signature="e#10061#10062#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2553,8 +2592,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="169" column="27" selection-start-line="169" selection-start-column="27" selection-end-line="169" selection-end-column="27" />
           <folding>
-            <element signature="e#9679#10061#0" expanded="true" />
-            <element signature="e#10060#10061#0" expanded="true" />
+            <element signature="e#2980#3599#0" expanded="true" />
+            <element signature="e#3598#3599#0" expanded="true" />
+            <element signature="e#3770#4788#0" expanded="true" />
+            <element signature="e#4787#4788#0" expanded="true" />
+            <element signature="e#5340#5575#0" expanded="true" />
+            <element signature="e#5574#5575#0" expanded="true" />
+            <element signature="e#6909#7217#0" expanded="true" />
+            <element signature="e#7216#7217#0" expanded="true" />
+            <element signature="e#9680#10062#0" expanded="true" />
+            <element signature="e#10061#10062#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2572,8 +2619,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="169" column="27" selection-start-line="169" selection-start-column="27" selection-end-line="169" selection-end-column="27" />
           <folding>
-            <element signature="e#9679#10061#0" expanded="true" />
-            <element signature="e#10060#10061#0" expanded="true" />
+            <element signature="e#2980#3599#0" expanded="true" />
+            <element signature="e#3598#3599#0" expanded="true" />
+            <element signature="e#3770#4788#0" expanded="true" />
+            <element signature="e#4787#4788#0" expanded="true" />
+            <element signature="e#5340#5575#0" expanded="true" />
+            <element signature="e#5574#5575#0" expanded="true" />
+            <element signature="e#6909#7217#0" expanded="true" />
+            <element signature="e#7216#7217#0" expanded="true" />
+            <element signature="e#9680#10062#0" expanded="true" />
+            <element signature="e#10061#10062#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2655,22 +2710,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.740741">
-          <caret line="259" column="37" selection-start-line="259" selection-start-column="37" selection-end-line="259" selection-end-column="37" />
-          <folding>
-            <element signature="e#9679#10061#0" expanded="true" />
-            <element signature="e#10060#10061#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/Board.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nzartofiq/battleship/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44280443">
-          <caret line="61" column="50" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
-          <folding />
+        <state vertical-scroll-proportion="0.12295082">
+          <caret line="169" column="28" selection-start-line="169" selection-start-column="28" selection-end-line="169" selection-end-column="28" />
+          <folding>
+            <element signature="e#2980#3599#0" expanded="true" />
+            <element signature="e#3598#3599#0" expanded="true" />
+            <element signature="e#3770#4788#0" expanded="true" />
+            <element signature="e#4787#4788#0" expanded="true" />
+            <element signature="e#5340#5575#0" expanded="true" />
+            <element signature="e#5574#5575#0" expanded="true" />
+            <element signature="e#6909#7217#0" expanded="true" />
+            <element signature="e#7216#7217#0" expanded="true" />
+            <element signature="e#9680#10062#0" expanded="true" />
+            <element signature="e#10061#10062#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -59,10 +59,11 @@ public class Board {
     private ArrayList<Integer> getRandomNumbers() {
         ArrayList<Integer> randoms = new ArrayList<>();
         Random r = new Random();
-        for (int i = 0; i < NUMBER_OF_SHIPS; i++) {
+        while (randoms.size() < NUMBER_OF_SHIPS) {
             Integer next = r.nextInt(MAX) + 1;
-            Log.d(TAG, String.valueOf(next));
-            randoms.add(next);
+            if (!randoms.contains(next)) {
+                randoms.add(next);
+            }
         }
         return randoms;
     }

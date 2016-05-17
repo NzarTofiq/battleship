@@ -8,9 +8,9 @@ import java.util.Random;
 public class Board {
     public static final int MAX = 36;
     private static final int NUMBER_OF_SHIPS = 3;
-    private static int CIRCLE_RADIUS = 3;
+    private static final int CIRCLE_RADIUS = 3;
     public String TAG = "Board class";
-    private SquareType[] squareTypes = new SquareType[MAX];
+    private static SquareType[] squareTypes = new SquareType[MAX];
 
     //constructor
     public Board() {
@@ -24,7 +24,7 @@ public class Board {
         }
     }
 
-    public SquareType getSquareTypes(int i) {
+    public SquareType getSquareType(int i) {
         return squareTypes[i];
     }
 
@@ -49,7 +49,7 @@ public class Board {
 
     public boolean checkWin() {
         for (SquareType i : squareTypes) {
-            if (i == SquareType.FREE || i == SquareType.SHIP) {
+            if (i == SquareType.SHIP) {
                 return false;
             }
         }
@@ -72,7 +72,7 @@ public class Board {
         squareTypes[i] = squareType;
     }
 
-    public ArrayList<Integer> getCircle(int centerPos) {
+    public void getCircle(int centerPos, SquareType state) {
         ArrayList<Integer> circle = new ArrayList<>();
         int side = (int) Math.floor(Math.sqrt(MAX));
 
@@ -87,7 +87,7 @@ public class Board {
         //assuming the grid is always a square, then max-y is the square root of MAX
         //which will be the row number, but to make it an int it has to start from one, hence ceiling
 
-        int centerY = (int) Math.ceil(centerPos / side) < side ? (int) Math.ceil(centerPos / side) : side;
+        int centerY = (int) (Math.ceil(centerPos / side) - 1)< side ? (int) (Math.ceil(centerPos / side) - 1): side;
 
         if (centerX > 0 && centerX < side && centerY > 0 && centerY < side) {
             for (int i = 0; i < 360; i++) {
@@ -106,13 +106,12 @@ public class Board {
                     if (sqX > 0 && sqX <= side && sqY > 0 && sqY <= side) {
                         int inside = sqX + (sqY * side);
                         if (!circle.contains(inside)) {
+                            setSquareType(inside, SquareType.AVAILABLE);
                             circle.add(inside);
                         }
                     }
                 }
             }
         }
-        Log.d("circle: ", String.valueOf(circle));
-        return circle;
     }
 }

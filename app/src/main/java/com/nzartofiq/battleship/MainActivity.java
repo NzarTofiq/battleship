@@ -3,18 +3,19 @@ package com.nzartofiq.battleship;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String BOARD_EXTRA = "com.nzartofiq.MainActivity.BOARD_EXTRA";
-    private static final String TAG = "Main activity ";
+//    public static final String BOARD_EXTRA = "com.nzartofiq.MainActivity.BOARD_EXTRA";
+//    private static final String TAG = "Main activity ";
     private static int[] actionBtns = {R.id.move, R.id.missile, R.id.torpedo, R.id.invisible, R.id.radar, R.id.bombard};
 
     //version 3
@@ -25,10 +26,11 @@ public class MainActivity extends AppCompatActivity {
             R.id.sq_28, R.id.sq_29, R.id.sq_30, R.id.sq_31, R.id.sq_32, R.id.sq_33, R.id.sq_34, R.id.sq_35, R.id.sq_36
     };
 
-    private static Board board;
-    private ArrayList<Integer> circle = new ArrayList<>();
+    private Board myBoard = new Board();
+    private Board opBoard = new Board();
     private String name;
-    private Gson boardObject;
+//    private Gson boardObject;
+//    private ArrayList circle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,62 +38,58 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.content_main);
         Intent intent = getIntent();
         name = intent.getStringExtra(StartActivity.NAME_EXTRA);
-        board = new Board();
         setUpActionClicks();
-        setUpBoard(findViewById(R.id.board_grid));
+        updateViewAll();
         setupBtnClicks();
+//        boardObject = new Gson();
     }
 
-    private void setUpBoard(View v) {
-        for (int i = 0; i < Board.MAX; i++) {
-            updateSquareView(v, i);
+    public void updateViewAll() {
+        for(int i = 0; i < squares.length; i++) {
+            syncBoard(i);
+            ImageButton iBtn = (ImageButton) findViewById(squares[i]);
+            switch (myBoard.getSquareType(i)) {
+                case SHIP:
+                    iBtn.setImageResource(R.drawable.ship);
+                    break;
+                case FREE:
+                    iBtn.setImageResource(R.drawable.green);
+                    break;
+                case WRECK:
+                    iBtn.setImageResource(R.drawable.ship_wrecked);
+                    break;
+                case USED:
+                    iBtn.setImageResource(R.drawable.red);
+                    break;
+                case AVAILABLE:
+                    iBtn.setImageResource(R.drawable.yellow);
+                    break;
+                default:
+                    iBtn.setImageResource(R.drawable.blue);
+            }
         }
     }
 
-    public void updateSquareView(View v, int i) {
-        ImageButton iBtn = (ImageButton) v.findViewById(squares[i]);
-        switch (board.getSquareTypes(i)) {
-            case SHIP:
-                iBtn.setImageResource(R.drawable.ship);
-                break;
-            case FREE:
-                iBtn.setImageResource(R.drawable.green);
-                break;
-            case WRECK:
-                iBtn.setImageResource(R.drawable.ship_wrecked);
-                break;
-            case USED:
-                iBtn.setImageResource(R.drawable.red);
-                break;
-            case AVAILABLE:
-                iBtn.setImageResource(R.drawable.yellow);
-                break;
-            default:
-                iBtn.setImageResource(R.drawable.blue);
-        }
-    }
-
-    public void updateAllSquareViews() {
-        for (int i = 0; i < Board.MAX; i++) {
-            View square = findViewById(squares[i]);
-            updateSquareView(square, i);
+    private void syncBoard(int i){
+        if (opBoard.getSquareType(i)!= SquareType.SHIP && myBoard.getSquareType(i) != opBoard.getSquareType(i)){
+            myBoard.setSquareType(i, opBoard.getSquareType(i));
         }
     }
 
     private void setupBtnClicks() {
-        for (int i = 0; i < Board.MAX; i++) {
-            findViewById(squares[i]).setOnClickListener(new View.OnClickListener() {
+        for (final int square : squares) {
+            findViewById(square).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     ImageButton iBtn = (ImageButton) v;
-                    for (int i = 0; i < Board.MAX; i++) {
-                        if (squares[i] == iBtn.getId()) {
-                            board.updateBoard(i);
-                            updateSquareView(v, i);
+                    for (int i = 0; i < squares.length; i++) {
+                        if (square == iBtn.getId()) {
+                            myBoard.updateBoard(i);
+                            updateViewAll();
                             iBtn.setOnClickListener(null);
                         }
                     }
-                    if (board.checkWin()) {
+                    if (myBoard.checkWin()) {
                         lastActivity();
                     }
                 }
@@ -100,8 +98,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setUpActionClicks() {
-        for (int i = 0; i < actionBtns.length; i++) {
-            findViewById(actionBtns[i]).setOnClickListener(new View.OnClickListener() {
+        for (int actionBtn : actionBtns) {
+            findViewById(actionBtn).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Button aBtn = (Button) view;
@@ -125,31 +123,101 @@ public class MainActivity extends AppCompatActivity {
                             bombard();
                             break;
                         default:
-                            missile();
+                            setupBtnClicks();
                     }
                 }
             });
         }
     }
 
-    private void bombard() {
+    private void move() {
+        myBoard.getCircle(10, SquareType.AVAILABLE);
+        updateViewAll();
         removeOnClickListeners();
-        for (int i = 0; i < Board.MAX; i++) {
+        for (int i = 0; i < squares.length; i++) {
             final ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-            board.updateBoard(i);
-            updateSquareView(iBtn, i);
+            final int oldPos = i;
+            if (myBoard.getSquareType(i) == SquareType.SHIP) {
+                iBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        ImageButton shipBtn = (ImageButton) view;
+                        moveNextClick(shipBtn);
+                        myBoard.setSquareType(oldPos, SquareType.FREE);
+                        updateViewAll();
+                    }
+                });
+            }
+        }
+    }
+
+    private void moveNextClick(View v) {
+        for (int i = 0; i < squares.length; i++) {
+            ImageButton iBtn = (ImageButton) findViewById(squares[i]);
+            iBtn.setOnClickListener(null);
+            final int newPos = i;
+            if (myBoard.getSquareType(i) == SquareType.FREE) {
+                iBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        myBoard.setSquareType(newPos, SquareType.SHIP);
+                        updateViewAll();
+                        view.setOnClickListener(null);
+                        removeOnClickListeners();
+                    }
+                });
+            }
+        }
+    }
+
+    private void torpedo() {
+        removeOnClickListeners();
+        for (int i = 0; i < squares.length; i++) {
+            final ImageButton iBtn = (ImageButton) findViewById(squares[i]);
+            if (myBoard.getSquareType(i) == SquareType.SHIP) {
+                final int pos = i;
+                iBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        ImageButton shipBtn = (ImageButton) view;
+                        torpedoNextClick(shipBtn, pos);
+                    }
+                });
+            }
+        }
+    }
+
+    private void torpedoNextClick(ImageButton shipBtn, int pos) {
+        myBoard.getCircle(pos, SquareType.AVAILABLE);
+        updateViewAll();
+        for (int i = 0; i < squares.length; i++) {
+            ImageButton iBtn = (ImageButton) findViewById(squares[i]);
+            if (shipBtn != iBtn) {
+                Log.d("available btns: ", String.valueOf(i));
+                final int hitPos = i;
+                myBoard.setSquareType(i, SquareType.USED);
+                updateViewAll();
+                iBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        myBoard.updateBoard(hitPos);
+                        updateViewAll();
+                        removeOnClickListeners();
+                    }
+                });
+            }
         }
     }
 
     private void radar() {
         removeOnClickListeners();
-        for (int i = 0; i < Board.MAX; i++) {
+        for (int i = 0; i < squares.length; i++) {
             final ImageButton iBtn = (ImageButton) findViewById(squares[i]);
             final int radarPos = i;
             iBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    updateSquareView(view, radarPos);
+                    updateViewAll();
                     removeOnClickListeners();
                 }
             });
@@ -158,21 +226,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void invisible() {
         removeOnClickListeners();
-        for (int i = 0; i < Board.MAX; i++) {
+        for (int i = 0; i < squares.length; i++) {
             final ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-            if (board.getSquareTypes(i) == SquareType.SHIP) {
+            if (myBoard.getSquareType(i) == SquareType.SHIP) {
                 iBtn.setImageResource(R.drawable.green);
             }
         }
     }
 
     private void missile() {
-        board.getCircle(15);
-        updateAllSquareViews();
+        myBoard.getCircle(15, SquareType.AVAILABLE);
+        updateViewAll();
         removeOnClickListeners();
-        for (int i = 0; i < Board.MAX; i++) {
+        for (int i = 0; i < squares.length; i++) {
             final ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-            if (board.getSquareTypes(i) == SquareType.SHIP) {
+            if (myBoard.getSquareType(i) == SquareType.SHIP) {
                 iBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -186,15 +254,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void missileNextClick(ImageButton shipBtn) {
         shipBtn.setOnClickListener(null);
-        for (int i = 0; i < Board.MAX; i++) {
+        for (int i = 0; i < squares.length; i++) {
             final int hitPos = i;
             ImageButton iBtn = (ImageButton) findViewById(squares[i]);
             if (shipBtn != iBtn) {
                 iBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        board.updateBoard(hitPos);
-                        updateSquareView(view, hitPos);
+                        myBoard.updateBoard(hitPos);
+                        updateViewAll();
                         removeOnClickListeners();
                     }
                 });
@@ -202,82 +270,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void torpedo() {
+    private void bombard() {
         removeOnClickListeners();
-        for (int i = 0; i < Board.MAX; i++) {
-            final ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-            if (board.getSquareTypes(i) == SquareType.SHIP) {
-                final int finalI = i;
-                iBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        ImageButton shipBtn = (ImageButton) view;
-                        torpedoNextClick(shipBtn, finalI);
-                    }
-                });
-            }
-        }
-    }
-
-    private void torpedoNextClick(ImageButton shipBtn, int pos) {
-        shipBtn.setOnClickListener(null);
-        for (int i = 0; i < Board.MAX; i++) {
-            final int hitPos = i;
-            updateAllSquareViews();
-            ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-            if (shipBtn != iBtn) {
-                iBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        board.updateBoard(hitPos);
-                        updateSquareView(view, hitPos);
-                        removeOnClickListeners();
-                    }
-                });
-            }
-        }
-    }
-
-    private void move() {
-        removeOnClickListeners();
-        for (int i = 0; i < Board.MAX; i++) {
-            final ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-            final int oldPos = i;
-            if (board.getSquareTypes(i) == SquareType.SHIP) {
-                iBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        ImageButton shipBtn = (ImageButton) view;
-                        moveNextClick(shipBtn);
-                        board.setSquareType(oldPos, SquareType.FREE);
-                        updateSquareView(view, oldPos);
-                    }
-                });
-            }
-        }
-    }
-
-    private void moveNextClick(View v) {
-        for (int i = 0; i < Board.MAX; i++) {
-            ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-            iBtn.setOnClickListener(null);
-            final int newPos = i;
-            if (board.getSquareTypes(i) == SquareType.FREE) {
-                iBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        board.setSquareType(newPos, SquareType.SHIP);
-                        updateSquareView(view, newPos);
-                        view.setOnClickListener(null);
-                        removeOnClickListeners();
-                    }
-                });
-            }
+        for (int i = 0; i < squares.length; i++) {
+            myBoard.updateBoard(i);
+            updateViewAll();
         }
     }
 
     private void removeOnClickListeners() {
-        for (int i = 0; i < Board.MAX; i++) {
+        for (int i = 0; i < squares.length; i++) {
             ImageButton imageButton = (ImageButton) findViewById(squares[i]);
             imageButton.setOnClickListener(null);
         }

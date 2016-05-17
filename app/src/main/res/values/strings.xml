@@ -14,4 +14,12 @@
     <string name="weapon_header_move_ship">Move a ship</string>
     <string name="radar">RADAR</string>
     <string name="action">Action</string>
+    <string name="hit_desc">If you tap one of your ships it will sink as well as the enemy\'s ship in the same square if there is one</string>
+    <string name="hit_header">Tap any square</string>
+    <string name="move_header">Move a Ship</string>
+    <string name="move_desc">Use this turn to move one of your ships</string>
+    <string name="torpedo_header">Torpedo</string>
+    <string name="torpedo_desc">"Tap one of your ships to select the ship which to send a torpedo from then tap one of the yellow squares, torpedoes only go through %s squares"</string>
+    <string name="radar_desc">Tap one your ships to find out if there are enemy ships round there.</string>
+    <string name="missile_desc">Tap anywhere on the board including your own ships, but if you do that, your ship sinks too</string>
 </resources>

@@ -8,9 +8,10 @@ import java.util.Random;
 public class Board {
     public static final int MAX = 36;
     private static final int NUMBER_OF_SHIPS = 3;
-    private static final int CIRCLE_RADIUS = 3;
+    public static final int CIRCLE_RADIUS = 2;
     public String TAG = "Board class";
     private static SquareType[] squareTypes = new SquareType[MAX];
+    public boolean invisible = false;
 
     //constructor
     public Board() {
@@ -60,7 +61,7 @@ public class Board {
         ArrayList<Integer> randoms = new ArrayList<>();
         Random r = new Random();
         while (randoms.size() < NUMBER_OF_SHIPS) {
-            Integer next = r.nextInt(MAX) + 1;
+            Integer next = r.nextInt(MAX);
             if (!randoms.contains(next)) {
                 randoms.add(next);
             }
@@ -72,8 +73,12 @@ public class Board {
         squareTypes[i] = squareType;
     }
 
-    public void getCircle(int centerPos, SquareType state) {
-        ArrayList<Integer> circle = new ArrayList<>();
+    public ArrayList<Integer> getCircle(int centerPos) {
+        if(centerPos >= MAX){
+            centerPos = MAX - 1;
+        }
+        ArrayList<Integer> circle = new ArrayList<Integer>();
+        //assuming the grid is always a square, then one side is the square root of max
         int side = (int) Math.floor(Math.sqrt(MAX));
 
         //assuming the array of squares is are laid in a grid
@@ -82,15 +87,20 @@ public class Board {
         centerPos = centerPos + 1;
 
         //the remainder of MAX/the number of the square in the array will give us its x position in the grid
-        int centerX = MAX % centerPos;
+        int centerX = side % centerPos;
 
-        //assuming the grid is always a square, then max-y is the square root of MAX
-        //which will be the row number, but to make it an int it has to start from one, hence ceiling
+        Log.d("centerX: ", String.valueOf(centerX));
 
-        int centerY = (int) (Math.ceil(centerPos / side) - 1)< side ? (int) (Math.ceil(centerPos / side) - 1): side;
+
+        //dividing the given number by a side will give us the raw number,
+        int centerY = (int) (Math.ceil(centerPos / side));
+        if(centerY > side){
+            centerY = side;
+        }
+        Log.d("centerY: ", String.valueOf(centerY));
 
         if (centerX > 0 && centerX < side && centerY > 0 && centerY < side) {
-            for (int i = 0; i < 360; i++) {
+            for (int i = 0; i < 360; i+=10) {
                 //starting from the center point extend the radius until it and get the squares it covers
                 for (int j = 0; j <= CIRCLE_RADIUS; j++) {
                     //find the length of x-radius at each degree in a circle round the center, this is to define the edges Xs
@@ -104,14 +114,15 @@ public class Board {
                     int sqX = (int) Math.abs(centerX + rX);
                     int sqY = (int) Math.abs(centerY + rY);
                     if (sqX > 0 && sqX <= side && sqY > 0 && sqY <= side) {
-                        int inside = sqX + (sqY * side);
-                        if (!circle.contains(inside)) {
-                            setSquareType(inside, SquareType.AVAILABLE);
-                            circle.add(inside);
+                        int isInside = sqX + (sqY * side) + 1;
+                        if (!circle.contains(isInside) && isInside != centerPos) {
+                            circle.add(isInside);
                         }
                     }
                 }
             }
         }
+        Log.d(TAG, String.valueOf(circle));
+        return circle;
     }
 }

@@ -1,20 +1,30 @@
 package com.nzartofiq.battleship;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
+
+import java.util.ArrayList;
+
+import static com.nzartofiq.battleship.R.string.torpedo_desc;
 
 //import com.google.gson.Gson;
 
 //import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-//    public static final String BOARD_EXTRA = "com.nzartofiq.MainActivity.BOARD_EXTRA";
+    //    public static final String BOARD_EXTRA = "com.nzartofiq.MainActivity.BOARD_EXTRA";
 //    private static final String TAG = "Main activity ";
     private static int[] actionBtns = {R.id.move, R.id.missile, R.id.torpedo, R.id.invisible, R.id.radar, R.id.bombard};
 
@@ -29,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
     private Board myBoard = new Board();
     private Board opBoard = new Board();
     private String name;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 //    private Gson boardObject;
 //    private ArrayList circle;
 
@@ -42,10 +57,13 @@ public class MainActivity extends AppCompatActivity {
         updateViewAll();
         setupBtnClicks();
 //        boardObject = new Gson();
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     public void updateViewAll() {
-        for(int i = 0; i < squares.length; i++) {
+        for (int i = 0; i < squares.length; i++) {
             syncBoard(i);
             ImageButton iBtn = (ImageButton) findViewById(squares[i]);
             switch (myBoard.getSquareType(i)) {
@@ -70,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void syncBoard(int i){
-        if (opBoard.getSquareType(i)!= SquareType.SHIP && myBoard.getSquareType(i) != opBoard.getSquareType(i)){
+    private void syncBoard(int i) {
+        if (opBoard.getSquareType(i) != SquareType.SHIP && myBoard.getSquareType(i) != opBoard.getSquareType(i)) {
             myBoard.setSquareType(i, opBoard.getSquareType(i));
         }
     }
@@ -130,8 +148,40 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void setInfo(String type) {
+        ImageView img = (ImageView) findViewById(R.id.action_image);
+        TextView header = (TextView) findViewById(R.id.action_header);
+        TextView desc = (TextView) findViewById(R.id.action_description);
+        switch (type){
+            case "move":
+                img.setImageResource(R.drawable.move);
+                header.setText(R.string.move_header);
+                desc.setText(R.string.move_desc);
+                break;
+            case "torpedo":
+                img.setImageResource(R.drawable.torpedo75_75);
+                header.setText(R.string.torpedo_header);
+                desc.setText(String.format(getString(torpedo_desc), Board.CIRCLE_RADIUS));
+                break;
+            case "missile":
+                img.setImageResource(R.drawable.missile75_75);
+                header.setText(R.string.missile);
+                desc.setText(R.string.missile_desc);
+                break;
+            case "radar":
+                img.setImageResource(R.drawable.radar75_75);
+                header.setText(R.string.radar);
+                desc.setText(R.string.radar_desc);
+                break;
+            default:
+                img.setImageResource(R.drawable.red);
+                header.setText(R.string.hit_header);
+                desc.setText(R.string.hit_desc);
+        }
+    }
+
     private void move() {
-        myBoard.getCircle(10, SquareType.AVAILABLE);
+        setInfo("move");
         updateViewAll();
         removeOnClickListeners();
         for (int i = 0; i < squares.length; i++) {
@@ -154,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
     private void moveNextClick(View v) {
         for (int i = 0; i < squares.length; i++) {
             ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-            iBtn.setOnClickListener(null);
+            removeOnClickListeners();
             final int newPos = i;
             if (myBoard.getSquareType(i) == SquareType.FREE) {
                 iBtn.setOnClickListener(new View.OnClickListener() {
@@ -164,6 +214,7 @@ public class MainActivity extends AppCompatActivity {
                         updateViewAll();
                         view.setOnClickListener(null);
                         removeOnClickListeners();
+
                     }
                 });
             }
@@ -171,16 +222,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void torpedo() {
+        setInfo("torpedo");
         removeOnClickListeners();
         for (int i = 0; i < squares.length; i++) {
             final ImageButton iBtn = (ImageButton) findViewById(squares[i]);
             if (myBoard.getSquareType(i) == SquareType.SHIP) {
-                final int pos = i;
+                final int finalI = i;
                 iBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        ImageButton shipBtn = (ImageButton) view;
-                        torpedoNextClick(shipBtn, pos);
+                        torpedoNextClick(iBtn, finalI);
                     }
                 });
             }
@@ -188,9 +239,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void torpedoNextClick(ImageButton shipBtn, int pos) {
-        myBoard.getCircle(pos, SquareType.AVAILABLE);
+        ArrayList circle = myBoard.getCircle(pos);
         updateViewAll();
-        for (int i = 0; i < squares.length; i++) {
+        for (int i = 0; i < circle.size(); i++) {
             ImageButton iBtn = (ImageButton) findViewById(squares[i]);
             if (shipBtn != iBtn) {
                 Log.d("available btns: ", String.valueOf(i));
@@ -209,59 +260,27 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void radar() {
-        removeOnClickListeners();
-        for (int i = 0; i < squares.length; i++) {
-            final ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-            final int radarPos = i;
-            iBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    updateViewAll();
-                    removeOnClickListeners();
-                }
-            });
-        }
-    }
-
-    private void invisible() {
-        removeOnClickListeners();
-        for (int i = 0; i < squares.length; i++) {
-            final ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-            if (myBoard.getSquareType(i) == SquareType.SHIP) {
-                iBtn.setImageResource(R.drawable.green);
-            }
-        }
-    }
-
     private void missile() {
-        myBoard.getCircle(15, SquareType.AVAILABLE);
-        updateViewAll();
+        setInfo("missile");
+        setupBtnClicks();
+    }
+
+    private void radar() {
+        setInfo("radar");
         removeOnClickListeners();
         for (int i = 0; i < squares.length; i++) {
             final ImageButton iBtn = (ImageButton) findViewById(squares[i]);
             if (myBoard.getSquareType(i) == SquareType.SHIP) {
+                final int radarPos = i;
                 iBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        ImageButton shipBtn = (ImageButton) view;
-                        missileNextClick(shipBtn);
-                    }
-                });
-            }
-        }
-    }
-
-    private void missileNextClick(ImageButton shipBtn) {
-        shipBtn.setOnClickListener(null);
-        for (int i = 0; i < squares.length; i++) {
-            final int hitPos = i;
-            ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-            if (shipBtn != iBtn) {
-                iBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        myBoard.updateBoard(hitPos);
+                        ArrayList circle = myBoard.getCircle(radarPos);
+                        for (int j = 0; j < circle.size(); j++){
+                            if(opBoard.getSquareType(j) == SquareType.SHIP && !opBoard.invisible){
+                                myBoard.setSquareType(j, SquareType.SHIP);
+                            }
+                        }
                         updateViewAll();
                         removeOnClickListeners();
                     }
@@ -270,18 +289,33 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void invisible() {
+        setInfo("invisible");
+        myBoard.invisible = true;
+    }
+
     private void bombard() {
+        setInfo("bombard");
         removeOnClickListeners();
-        for (int i = 0; i < squares.length; i++) {
-            myBoard.updateBoard(i);
+        for (final int square : squares) {
+            ImageButton iBtn = (ImageButton) findViewById(square);
+            iBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ArrayList circle = myBoard.getCircle(square);
+                    for (int j = 0; j > circle.size(); j++){
+                        myBoard.updateBoard(j);
+                    }
+                }
+            });
             updateViewAll();
         }
     }
 
     private void removeOnClickListeners() {
-        for (int i = 0; i < squares.length; i++) {
-            ImageButton imageButton = (ImageButton) findViewById(squares[i]);
-            imageButton.setOnClickListener(null);
+        for (int square : squares) {
+            ImageButton iBtn = (ImageButton) findViewById(square);
+            iBtn.setOnClickListener(null);
         }
     }
 
@@ -290,5 +324,45 @@ public class MainActivity extends AppCompatActivity {
         TextView textMsg = (TextView) findViewById(R.id.goodByMsg);
         intent.putExtra(StartActivity.NAME_EXTRA, name);
         startActivity(intent);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.nzartofiq.battleship/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app URL is correct.
+                Uri.parse("android-app://com.nzartofiq.battleship/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
     }
 }

@@ -97,7 +97,7 @@
                 android:id="@+id/action_header"
                 android:layout_width="match_parent"
                 android:layout_height="50sp"
-                android:text="@string/weapon_header_move_ship"
+                android:text="@string/hit_header"
                 android:textAlignment="center"
                 android:textColor="#FFF"
                 android:textSize="20sp" />
@@ -106,7 +106,7 @@
                 android:id="@+id/action_description"
                 android:layout_width="match_parent"
                 android:layout_height="200sp"
-                android:text="@string/weapon_desc_move_ship"
+                android:text="@string/hit_desc"
                 android:textAlignment="center"
                 android:textColor="#FFF" />
         </LinearLayout>

@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        testCircle();
     }
 
     public void updateViewAll() {
@@ -87,7 +88,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
+    private void testCircle() {
+        ArrayList circle = myBoard.getCircle(14);
+        for (int i = 0; i<circle.size(); i++){
+            myBoard.updateBoard((Integer) circle.get(i));
+            updateViewAll();
+        }
+    }
     private void syncBoard(int i) {
         if (opBoard.getSquareType(i) != SquareType.SHIP && myBoard.getSquareType(i) != opBoard.getSquareType(i)) {
             myBoard.setSquareType(i, opBoard.getSquareType(i));

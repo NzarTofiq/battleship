@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private void testCircle() {
-        ArrayList circle = myBoard.getCircle(14);
+        ArrayList circle = myBoard.getCircle(21);
         for (int i = 0; i<circle.size(); i++){
             myBoard.updateBoard((Integer) circle.get(i));
             updateViewAll();

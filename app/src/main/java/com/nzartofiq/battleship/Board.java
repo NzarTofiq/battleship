@@ -80,36 +80,19 @@ public class Board {
             centerPos = MAX - 1;
         }
         ArrayList circle = new ArrayList();
-        int side = (int) Math.floor(Math.sqrt(MAX));
-        int centerX = centerPos % side;
-        int centerY = centerPos / side;
-        Log.d("centerY: ", String.valueOf(centerY));
+        double side = Math.sqrt(MAX);
 
-        Log.d("center square", String.valueOf(Math.round((centerY * side) + (centerX))));
-
-        for (int angle= 0; angle < 2 * Math.PI; angle+=1) {
-
-            //starting from the center point extend the radius until radius value and get the squares it covers
-            for (int j = 0; j <= CIRCLE_RADIUS; j++) {
-                //find the length of x-radius at each degree in a circle round the center, this is to define the edges Xs
-                double rX = Math.floor(Math.cos(Math.toDegrees(angle)) * j);
-                Log.d("i ", String.valueOf(angle));
-                Log.d("rx i", String.valueOf(rX));
-
-                //find the length of y-radius at each degree in a circle round the center, this is to define the edges Ys
-                double rY = -1 * Math.floor(Math.sin(Math.toDegrees(angle)) * j);
-
-                //now we have a circle somewhere in the grid
-                //to put the circle around the center is to get the end of radius square's X and Y
-                // by adding or taking away the length and position of the radius line from center point
-                double sqX = (centerX) + rX;
-                double sqY = (centerY) + rY;
-
-                Log.d("sqX", String.valueOf(sqX));
-
-                int square = 0;
-                if (!circle.contains(square) && square >= 0) {
-                    circle.add(square);
+        double centerX = centerPos % side;
+        double centerY = centerPos / side;
+        for (int i = 0; i< MAX; i++){
+            double pX = Math.abs(i % side + 1) - centerX;
+            double pY = Math.abs(i / side + 1) - centerY;
+            for (double j = 0; j < 360; j+=10){
+                double distanceX = Math.cos(Math.toRadians(j) * CIRCLE_RADIUS) + pX;
+                double distanceY = Math.sin(Math.toRadians(j) * CIRCLE_RADIUS) + pY;
+                double distance = Math.abs(distanceX) > Math.abs(distanceY) ? distanceX : distanceY;
+                if (Math.abs(distance) < CIRCLE_RADIUS && !circle.contains(i)){
+                    circle.add(i);
                 }
             }
         }

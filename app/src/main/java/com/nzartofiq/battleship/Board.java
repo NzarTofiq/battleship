@@ -14,6 +14,7 @@ public class Board {
     public String TAG = "Board class";
     private static SquareType[] squareTypes = new SquareType[MAX];
     public boolean invisible = false;
+    public int hit;
 
     //constructor
     public Board() {
@@ -25,38 +26,31 @@ public class Board {
                 squareTypes[i] = SquareType.FREE;
             }
         }
+        hit = 0;
     }
 
     public SquareType getSquareType(int i) {
         return squareTypes[i];
     }
+    public void setSquareType(int i, SquareType squareType) {
+        squareTypes[i] = squareType;
+    }
 
     public void updateBoard(int pos) {
         switch (squareTypes[pos]) {
-            case FREE:
+            case  FREE:
+                squareTypes[pos] = SquareType.USED;
+                break;
+            case AVAILABLE:
                 squareTypes[pos] = SquareType.USED;
                 break;
             case SHIP:
                 squareTypes[pos] = SquareType.WRECK;
-                break;
-            case WRECK:
-                squareTypes[pos] = SquareType.WRECK;
-                break;
-            case USED:
-                squareTypes[pos] = SquareType.USED;
+                hit++;
                 break;
             default:
                 squareTypes[pos] = SquareType.FREE;
         }
-    }
-
-    public boolean checkWin() {
-        for (SquareType i : squareTypes) {
-            if (i == SquareType.SHIP) {
-                return false;
-            }
-        }
-        return true;
     }
 
     private ArrayList<Integer> getRandomNumbers() {
@@ -71,10 +65,6 @@ public class Board {
         return randoms;
     }
 
-    public void setSquareType(int i, SquareType squareType) {
-        squareTypes[i] = squareType;
-    }
-
     public ArrayList<Integer> getCircle(int centerPos) {
         if(centerPos >= MAX){
             centerPos = MAX - 1;
@@ -83,7 +73,7 @@ public class Board {
         double side = Math.sqrt(MAX);
 
         double centerX = centerPos % side;
-        double centerY = centerPos / side;
+        double centerY = side - centerPos / side;
         for (int i = 0; i< MAX; i++){
             double pX = Math.abs(i % side + 1) - centerX;
             double pY = Math.abs(i / side + 1) - centerY;
@@ -98,5 +88,24 @@ public class Board {
         }
         Log.d(TAG, String.valueOf(circle));
         return circle;
+    }
+
+    public boolean checkWin() {
+        if(hit < NUMBER_OF_SHIPS){
+            return false;
+        }
+        return true;
+    }
+
+    public void normalize() {
+        for(int i= 0; i< MAX; i++){
+            if (squareTypes[i] == SquareType.AVAILABLE)
+                squareTypes[i] = SquareType.FREE;
+        }
+    }
+    public void highLight(int i){
+        if(squareTypes[i] == SquareType.FREE){
+            squareTypes[i] = SquareType.AVAILABLE;
+        }
     }
 }

@@ -22,4 +22,6 @@
     <string name="torpedo_desc">"Tap one of your ships to select the ship which to send a torpedo from then tap one of the yellow squares, torpedoes only go through %s squares"</string>
     <string name="radar_desc">Tap one your ships to find out if there are enemy ships round there.</string>
     <string name="missile_desc">Tap anywhere on the board including your own ships, but if you do that, your ship sinks too</string>
+    <string name="bombard_desc">Tap somewhere to bombard the area, you only get one shot of Bombardment so make sure you choose widely</string>
+    <string name="invisible_desc">Use a turn to make your ships invisible to the enemy\'s radar, your ships can still get hit.</string>
 </resources>

@@ -4,16 +4,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.ArrayList;
 
@@ -22,7 +17,7 @@ import static com.nzartofiq.battleship.R.string.torpedo_desc;
 
 public class MainActivity extends AppCompatActivity {
     //    public static final String BOARD_EXTRA = "com.nzartofiq.MainActivity.BOARD_EXTRA";
-//    private static final String TAG = "Main activity ";
+    //    private static final String TAG = "Main activity ";
     private static int[] actionBtns = {R.id.move, R.id.missile, R.id.torpedo, R.id.invisible, R.id.radar, R.id.bombard};
 
     //version 3
@@ -36,13 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private Board myBoard = new Board();
     private Board opBoard = new Board();
     private String name;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
-//    private Gson boardObject;
-//    private ArrayList circle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +40,6 @@ public class MainActivity extends AppCompatActivity {
         name = intent.getStringExtra(StartActivity.NAME_EXTRA);
         setUpActionClicks();
         updateViewAll();
-        setupBtnClicks();
-//        boardObject = new Gson();
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     public void updateViewAll() {
@@ -84,27 +67,18 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
     private void syncBoard(int i) {
         if (opBoard.getSquareType(i) != SquareType.SHIP && myBoard.getSquareType(i) != opBoard.getSquareType(i)) {
             myBoard.setSquareType(i, opBoard.getSquareType(i));
         }
     }
 
-    private void setupBtnClicks() {
-        for (int i= 0; i< squares.length; i++) {
-            final int finalI = i;
-            ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-            iBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    myBoard.updateBoard(finalI);
-                    myBoard.normalize();
-                    updateViewAll();
-                    removeOnClickListeners();
-                    Communication.opTurn(myBoard);
-                }
-            });
-        }
+    private void update(){
+        myBoard.normalize();
+        updateViewAll();
+        removeOnClickListeners();
+        Communication.opTurn(myBoard);
     }
 
     public void setUpActionClicks() {
@@ -133,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                             radar();
                             break;
                         default:
-                            setupBtnClicks();
+                            missile();
                     }
                 }
             });
@@ -203,9 +177,7 @@ public class MainActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(View view) {
                                         myBoard.setSquareType(newPos, SquareType.SHIP);
-                                        updateViewAll();
-                                        removeOnClickListeners();
-                                        Communication.opTurn(myBoard);
+                                        update();
                                     }
                                 });
                             }
@@ -236,10 +208,7 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(View view) {
                                     myBoard.updateBoard(finalJ);
-                                    myBoard.normalize();
-                                    updateViewAll();
-                                    removeOnClickListeners();
-                                    Communication.opTurn(myBoard);
+                                    update();
                                 }
                             });
                         }
@@ -258,10 +227,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     myBoard.updateBoard(finalI);
-                    myBoard.normalize();
-                    updateViewAll();
-                    removeOnClickListeners();
-                    Communication.opTurn(myBoard);
+                    update();
                 }
             });
         }
@@ -280,8 +246,7 @@ public class MainActivity extends AppCompatActivity {
                         myBoard.updateBoard(j);
                         findViewById(R.id.bombard).setEnabled(false);
                     }
-                    updateViewAll();
-                    removeOnClickListeners();
+                    update();
                 }
             });
         }
@@ -304,8 +269,7 @@ public class MainActivity extends AppCompatActivity {
                                 myBoard.setSquareType(j, SquareType.SHIP);
                             }
                         }
-                        updateViewAll();
-                        removeOnClickListeners();
+                        update();
                     }
                 });
             }
@@ -329,45 +293,5 @@ public class MainActivity extends AppCompatActivity {
         TextView textMsg = (TextView) findViewById(R.id.goodByMsg);
         intent.putExtra(StartActivity.NAME_EXTRA, name);
         startActivity(intent);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Main Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://com.nzartofiq.battleship/http/host/path")
-        );
-        AppIndex.AppIndexApi.start(client, viewAction);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "Main Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app URL is correct.
-                Uri.parse("android-app://com.nzartofiq.battleship/http/host/path")
-        );
-        AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();
     }
 }

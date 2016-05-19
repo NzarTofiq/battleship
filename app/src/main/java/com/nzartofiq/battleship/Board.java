@@ -48,6 +48,12 @@ public class Board {
                 squareTypes[pos] = SquareType.WRECK;
                 hit++;
                 break;
+            case USED:
+                squareTypes[pos] = SquareType.USED;
+                break;
+            case WRECK:
+                squareTypes[pos] = SquareType.WRECK;
+                break;
             default:
                 squareTypes[pos] = SquareType.FREE;
         }
@@ -73,7 +79,7 @@ public class Board {
         double side = Math.sqrt(MAX);
 
         double centerX = centerPos % side;
-        double centerY = side - centerPos / side;
+        double centerY = centerPos / side;
         for (int i = 0; i< MAX; i++){
             double pX = Math.abs(i % side + 1) - centerX;
             double pY = Math.abs(i / side + 1) - centerY;

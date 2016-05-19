@@ -1,18 +1,18 @@
 <resources>
-    <string name="app_name">battleship</string>
+    <string name="app_name">Bttleships</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_start">StartActivity</string>
     <string name="title_activity_last">LastActivity</string>
     <string name="green_blob">Green Blob</string>
-    <string name="torpedo">torpedo</string>
-    <string name="move_ships">move ships</string>
-    <string name="missile">missile</string>
-    <string name="bombard">bombard</string>
-    <string name="invisible">go ghost</string>
-    <string name="blue_square">Blue square</string>
+    <string name="torpedo">Torpedo</string>
+    <string name="move_ships">Move a Ship</string>
+    <string name="missile">Missile</string>
+    <string name="bombard">Bombard</string>
+    <string name="invisible">Ghost</string>
+    <string name="blue_square">Blue Square</string>
     <string name="weapon_desc_move_ship">Use a turn to move one of your ships</string>
     <string name="weapon_header_move_ship">Move a ship</string>
-    <string name="radar">RADAR</string>
+    <string name="radar">Radar</string>
     <string name="action">Action</string>
     <string name="hit_desc">If you tap one of your ships it will sink as well as the enemy\'s ship in the same square if there is one</string>
     <string name="hit_header">Tap any square</string>

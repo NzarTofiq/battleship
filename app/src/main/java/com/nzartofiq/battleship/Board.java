@@ -119,6 +119,8 @@ public class Board {
     public void highLight(int i){
         if(squareTypes[i] == SquareType.FREE){
             squareTypes[i] = SquareType.AVAILABLE;
+        } else {
+            squareTypes[i] = squareTypes[i];
         }
     }
 }

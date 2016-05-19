@@ -201,14 +201,14 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         final ArrayList circle = myBoard.getCircle(finalI);
                         for (int j = 0; j < circle.size(); j++) {
-                            ImageButton highLighted = (ImageButton) findViewById(squares[j]);
-                            myBoard.highLight(j);
+                            ImageButton highLighted = (ImageButton) findViewById(squares[(int) circle.get(j)]);
+                            myBoard.highLight((int) circle.get(j));
                             updateViewAll();
                             final int finalJ = j;
                             highLighted.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    myBoard.updateBoard(finalJ);
+                                    myBoard.updateBoard((Integer) circle.get(finalJ));
                                     update();
                                 }
                             });
@@ -266,9 +266,12 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         ArrayList circle = myBoard.getCircle(radarPos);
                         for (int j = 0; j < circle.size(); j++){
-                            myBoard.highLight(j);
+                            myBoard.highLight((int) circle.get(j));
                             if(opBoard.getSquareType(j) == SquareType.SHIP && !opBoard.invisible){
                                 myBoard.setSquareType(j, SquareType.SHIP);
+                                updateViewAll();
+                                TextView desc = (TextView) findViewById(R.id.action_description);
+                                desc.setText("Ship found");
                             }
                         }
                         update();
@@ -281,6 +284,7 @@ public class MainActivity extends AppCompatActivity {
     private void invisible() {
         setInfo("invisible");
         myBoard.invisible = true;
+        update();
     }
 
     private void removeOnClickListeners() {

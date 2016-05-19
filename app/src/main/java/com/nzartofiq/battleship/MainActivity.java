@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -236,14 +237,15 @@ public class MainActivity extends AppCompatActivity {
     private void bombard() {
         setInfo("bombard");
         removeOnClickListeners();
-        for (final int square : squares) {
-            ImageButton iBtn = (ImageButton) findViewById(square);
+        for (int i= 0; i< squares.length; i++) {
+            ImageButton iBtn = (ImageButton) findViewById(squares[i]);
+            final int finalI = i;
             iBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ArrayList circle = myBoard.getCircle(square);
+                    ArrayList circle = myBoard.getCircle(finalI);
                     for (int j = 0; j < circle.size(); j++){
-                        myBoard.updateBoard(j);
+                        myBoard.updateBoard((int) circle.get(j));
                         findViewById(R.id.bombard).setEnabled(false);
                     }
                     update();

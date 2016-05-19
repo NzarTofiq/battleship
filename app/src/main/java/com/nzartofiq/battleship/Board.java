@@ -15,6 +15,7 @@ public class Board {
     private static SquareType[] squareTypes = new SquareType[MAX];
     public boolean invisible = false;
     public int hit;
+    private ArrayList circle;
 
     //constructor
     public Board() {
@@ -75,25 +76,31 @@ public class Board {
         if(centerPos >= MAX){
             centerPos = MAX - 1;
         }
-        ArrayList circle = new ArrayList();
-        double side = Math.sqrt(MAX);
+        circle = new ArrayList();
+        int side = (int) Math.abs(Math.floor(Math.sqrt(MAX)));
 
-        double centerX = centerPos % side;
-        double centerY = centerPos / side;
-        for (int i = 0; i< MAX; i++){
-            double pX = Math.abs(i % side + 1) - centerX;
-            double pY = Math.abs(i / side + 1) - centerY;
-            for (double j = 0; j < 360; j+=10){
-                double distanceX = Math.cos(Math.toRadians(j) * CIRCLE_RADIUS) + pX;
-                double distanceY = Math.sin(Math.toRadians(j) * CIRCLE_RADIUS) + pY;
-                double distance = Math.abs(distanceX) > Math.abs(distanceY) ? distanceX : distanceY;
-                if (Math.abs(distance) < CIRCLE_RADIUS && !circle.contains(i)){
-                    circle.add(i);
-                }
-            }
-        }
+        push(centerPos - side - side);
+        push(centerPos - side - 1);
+        push(centerPos - side);
+        push(centerPos - side + 1);
+        push(centerPos - 2);
+        push(centerPos - 1);
+        push(centerPos);
+        push(centerPos + 1);
+        push(centerPos + 2);
+        push(centerPos + side - 1);
+        push(centerPos + side);
+        push(centerPos + side + 1);
+        push(centerPos + side + side);
+
         Log.d(TAG, String.valueOf(circle));
         return circle;
+    }
+
+    private void push(int i) {
+        if (i >= 0 && i < MAX && !circle.contains(i)){
+            circle.add(i);
+        }
     }
 
     public boolean checkWin() {

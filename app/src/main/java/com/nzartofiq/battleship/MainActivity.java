@@ -1,10 +1,8 @@
 package com.nzartofiq.battleship;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -45,41 +43,48 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateViewAll() {
         for (int i = 0; i < squares.length; i++) {
-            syncBoard(i);
-            ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-            switch (myBoard.getSquareType(i)) {
-                case SHIP:
-                    iBtn.setImageResource(R.drawable.ship);
-                    break;
-                case FREE:
-                    iBtn.setImageResource(R.drawable.green);
-                    break;
-                case WRECK:
-                    iBtn.setImageResource(R.drawable.ship_wrecked);
-                    break;
-                case USED:
-                    iBtn.setImageResource(R.drawable.red);
-                    break;
-                case AVAILABLE:
-                    iBtn.setImageResource(R.drawable.yellow);
-                    break;
-                default:
-                    iBtn.setImageResource(R.drawable.blue);
-            }
+            updateView(i);
+        }
+    }
+
+    public void updateView(int i) {
+        syncBoard(i);
+        ImageButton iBtn = (ImageButton) findViewById(squares[i]);
+        switch (myBoard.getSquareType(i)) {
+            case SHIP:
+                iBtn.setImageResource(R.drawable.ship);
+                break;
+            case OP_SHIP:
+            case FREE:
+                iBtn.setImageResource(R.drawable.green);
+                break;
+            case WRECK:
+                iBtn.setImageResource(R.drawable.ship_wrecked);
+                break;
+            case USED:
+                iBtn.setImageResource(R.drawable.red);
+                break;
+            case AVAILABLE:
+                iBtn.setImageResource(R.drawable.yellow);
+                break;
+            case OP_SHIP_DISP:
+                iBtn.setImageResource(R.drawable.op_ship);
+            case OP_WRECK:
+                iBtn.setImageResource(R.drawable.op_wreck);
+                break;
+            default:
+                iBtn.setImageResource(R.drawable.green);
         }
     }
 
     private void syncBoard(int i) {
-        if (opBoard.getSquareType(i) != SquareType.SHIP && myBoard.getSquareType(i) != opBoard.getSquareType(i)) {
-            myBoard.setSquareType(i, opBoard.getSquareType(i));
+        while (myBoard.playing()){
+            if (opBoard.getSquareType(i) == SquareType.SHIP) {
+                myBoard.setSquareType(i, SquareType.OP_SHIP);
+            }
+            return;
         }
-    }
-
-    private void update(){
-        myBoard.normalize();
-        updateViewAll();
-        removeOnClickListeners();
-        Communication.opTurn(myBoard);
+        lastActivity();
     }
 
     public void setUpActionClicks() {
@@ -128,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
             case "torpedo":
                 img.setImageResource(R.drawable.torpedo75_75);
                 header.setText(R.string.torpedo_header);
-                desc.setText(String.format(getString(torpedo_desc), Board.CIRCLE_RADIUS));
+                desc.setText(String.format(getString(torpedo_desc), "2"));
                 break;
             case "missile":
                 img.setImageResource(R.drawable.missile75_75);
@@ -178,7 +183,9 @@ public class MainActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(View view) {
                                         myBoard.setSquareType(newPos, SquareType.SHIP);
-                                        update();
+                                        updateView(newPos);
+                                        removeOnClickListeners();
+                                        Communication.opTurn(myBoard);
                                     }
                                 });
                             }
@@ -201,15 +208,18 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         final ArrayList circle = myBoard.getCircle(finalI);
                         for (int j = 0; j < circle.size(); j++) {
+                            myBoard.highLight((int) circle.get(j), false);
                             ImageButton highLighted = (ImageButton) findViewById(squares[(int) circle.get(j)]);
-                            myBoard.highLight((int) circle.get(j));
-                            updateViewAll();
+                            updateView((int) circle.get(j));
                             final int finalJ = j;
                             highLighted.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    myBoard.updateBoard((Integer) circle.get(finalJ));
-                                    update();
+                                    myBoard.fireAt((int) circle.get(finalJ));
+                                    myBoard.normalize();
+                                    updateView((int) circle.get(finalJ));
+                                    removeOnClickListeners();
+                                    Communication.opTurn(myBoard);
                                 }
                             });
                         }
@@ -227,8 +237,11 @@ public class MainActivity extends AppCompatActivity {
             iBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    myBoard.updateBoard(finalI);
-                    update();
+                    myBoard.fireAt(finalI);
+                    myBoard.normalize();
+        updateViewAll();
+        removeOnClickListeners();
+        Communication.opTurn(myBoard);;
                 }
             });
         }
@@ -245,10 +258,13 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     ArrayList circle = myBoard.getCircle(finalI);
                     for (int j = 0; j < circle.size(); j++){
-                        myBoard.updateBoard((int) circle.get(j));
+                        myBoard.fireAt((int) circle.get(j));
                         findViewById(R.id.bombard).setEnabled(false);
                     }
-                    update();
+                    myBoard.normalize();
+                    updateViewAll();
+                    removeOnClickListeners();
+                    Communication.opTurn(myBoard);
                 }
             });
         }
@@ -266,15 +282,20 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         ArrayList circle = myBoard.getCircle(radarPos);
                         for (int j = 0; j < circle.size(); j++){
-                            myBoard.highLight((int) circle.get(j));
-                            if(opBoard.getSquareType(j) == SquareType.SHIP && !opBoard.invisible){
-                                myBoard.setSquareType(j, SquareType.SHIP);
-                                updateViewAll();
+                            int square = (int) circle.get(j);
+                            myBoard.highLight(square, true);
+                            if(opBoard.getSquareType(square) == SquareType.SHIP && !opBoard.invisible){
+                                myBoard.setSquareType(square, SquareType.OP_SHIP);
+                                updateView(square);
                                 TextView desc = (TextView) findViewById(R.id.action_description);
-                                desc.setText("Ship found");
+                                desc.setText(R.string.ship_found);
+                            } else {
+                                myBoard.highLight(square, true);
+                                updateView(square);
+                                TextView desc = (TextView) findViewById(R.id.action_description);
+                                desc.setText("No enemy ships round here");
                             }
                         }
-                        update();
                     }
                 });
             }
@@ -284,7 +305,10 @@ public class MainActivity extends AppCompatActivity {
     private void invisible() {
         setInfo("invisible");
         myBoard.invisible = true;
-        update();
+        myBoard.normalize();
+        updateViewAll();
+        removeOnClickListeners();
+        Communication.opTurn(myBoard);;
     }
 
     private void removeOnClickListeners() {

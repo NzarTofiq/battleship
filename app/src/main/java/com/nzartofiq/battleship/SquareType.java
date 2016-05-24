@@ -5,5 +5,5 @@ package com.nzartofiq.battleship;
  * Defines the state of a Square
  */
 public enum SquareType {
-    FREE, USED, SHIP, WRECK, AVAILABLE
+    FREE, USED, SHIP, WRECK, AVAILABLE, OP_WRECK, OP_SHIP, OP_SHIP_DISP
 }

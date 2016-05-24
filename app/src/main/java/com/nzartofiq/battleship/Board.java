@@ -1,67 +1,67 @@
 package com.nzartofiq.battleship;
 
-import android.util.Log;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Random;
-import java.util.StringTokenizer;
+
+import static com.nzartofiq.battleship.SquareType.AVAILABLE;
+import static com.nzartofiq.battleship.SquareType.FREE;
+import static com.nzartofiq.battleship.SquareType.OP_SHIP;
+import static com.nzartofiq.battleship.SquareType.OP_SHIP_DISP;
+import static com.nzartofiq.battleship.SquareType.OP_WRECK;
+import static com.nzartofiq.battleship.SquareType.SHIP;
+import static com.nzartofiq.battleship.SquareType.USED;
+import static com.nzartofiq.battleship.SquareType.WRECK;
 
 public class Board {
-    public static final int MAX = 36;
-    private static final int NUMBER_OF_SHIPS = 3;
-    public static final int CIRCLE_RADIUS = 1;
-    public String TAG = "Board class";
-    private static SquareType[] squareTypes = new SquareType[MAX];
-    public boolean invisible = false;
-    public int hit;
+    private static final int MAX = 36;
+    private final int NUMBER_OF_SHIPS = 3;
+    private SquareType[] squareTypes = new SquareType[MAX];
     private ArrayList circle;
+    public boolean invisible = false;
 
     //constructor
     public Board() {
         ArrayList<Integer> r = getRandomNumbers();
         for (int i = 0; i < MAX; i++) {
             if (r.contains(i)) {
-                squareTypes[i] = SquareType.SHIP;
+                squareTypes[i] = SHIP;
             } else {
-                squareTypes[i] = SquareType.FREE;
+                squareTypes[i] = FREE;
             }
         }
-        hit = 0;
     }
 
     public SquareType getSquareType(int i) {
         return squareTypes[i];
     }
+
     public void setSquareType(int i, SquareType squareType) {
         squareTypes[i] = squareType;
     }
 
-    public void updateBoard(int pos) {
+    public void fireAt(int pos) {
         switch (squareTypes[pos]) {
-            case  FREE:
-                squareTypes[pos] = SquareType.USED;
-                break;
+            case FREE:
             case AVAILABLE:
-                squareTypes[pos] = SquareType.USED;
+            case USED:
+                squareTypes[pos] = USED;
                 break;
             case SHIP:
-                squareTypes[pos] = SquareType.WRECK;
-                hit++;
-                break;
-            case USED:
-                squareTypes[pos] = SquareType.USED;
-                break;
             case WRECK:
-                squareTypes[pos] = SquareType.WRECK;
+                squareTypes[pos] = WRECK;
+                break;
+            case OP_SHIP_DISP:
+            case OP_WRECK:
+            case OP_SHIP:
+                squareTypes[pos] = OP_WRECK;
                 break;
             default:
-                squareTypes[pos] = SquareType.FREE;
+                squareTypes[pos] = squareTypes[pos];
         }
     }
 
-    private ArrayList<Integer> getRandomNumbers() {
-        ArrayList<Integer> randoms = new ArrayList<>();
+    private ArrayList getRandomNumbers() {
+        ArrayList randoms = new ArrayList();
         Random r = new Random();
         while (randoms.size() < NUMBER_OF_SHIPS) {
             Integer next = r.nextInt(MAX);
@@ -72,10 +72,11 @@ public class Board {
         return randoms;
     }
 
-    public ArrayList<Integer> getCircle(int centerPos) {
+    public ArrayList getCircle(int centerPos) {
         if(centerPos >= MAX){
             centerPos = MAX - 1;
         }
+        circle = null;
         circle = new ArrayList();
         int side = (int) Math.abs(Math.floor(Math.sqrt(MAX)));
 
@@ -92,8 +93,6 @@ public class Board {
         push(centerPos + side);
         push(centerPos + side + 1);
         push(centerPos + side + side);
-
-        Log.d(TAG, String.valueOf(circle));
         return circle;
     }
 
@@ -103,24 +102,27 @@ public class Board {
         }
     }
 
-    public boolean checkWin() {
-        if(hit < NUMBER_OF_SHIPS){
-            return false;
+    public boolean playing() {
+        for (SquareType squareType : squareTypes) {
+            if ((squareType == SHIP)) {
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 
     public void normalize() {
         for(int i= 0; i< MAX; i++){
-            if (squareTypes[i] == SquareType.AVAILABLE)
-                squareTypes[i] = SquareType.FREE;
+            if (squareTypes[i] == AVAILABLE) {
+                squareTypes[i] = FREE;
+            }
         }
     }
-    public void highLight(int i){
-        if(squareTypes[i] == SquareType.FREE){
-            squareTypes[i] = SquareType.AVAILABLE;
-        } else {
-            squareTypes[i] = squareTypes[i];
+    public void highLight(int i, boolean disp){
+        if(squareTypes[i] == FREE){
+            squareTypes[i] = AVAILABLE;
+        } else if (squareTypes[i] == OP_SHIP && disp){
+            squareTypes[i] = OP_SHIP_DISP;
         }
     }
 }

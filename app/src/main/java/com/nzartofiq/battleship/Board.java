@@ -114,15 +114,21 @@ public class Board {
     public void normalize() {
         for(int i= 0; i< MAX; i++){
             if (squareTypes[i] == AVAILABLE) {
-                squareTypes[i] = FREE;
+                setSquareType(i, FREE);
             }
         }
     }
     public void highLight(int i, boolean disp){
-        if(squareTypes[i] == FREE){
-            squareTypes[i] = AVAILABLE;
-        } else if (squareTypes[i] == OP_SHIP && disp){
-            squareTypes[i] = OP_SHIP_DISP;
+        if(disp){
+            if(squareTypes[i] == FREE) {
+                setSquareType(i, AVAILABLE);
+            } else if (squareTypes[i] == OP_SHIP && disp){
+                setSquareType(i, OP_SHIP_DISP);
+            }
+        } else {
+            if(squareTypes[i] == FREE || squareTypes[i] == OP_SHIP) {
+                setSquareType(i, AVAILABLE);
+            }
         }
     }
 }

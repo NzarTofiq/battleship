@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateView(int i) {
-        syncBoard(i);
+        syncBoard();
         ImageButton iBtn = (ImageButton) findViewById(squares[i]);
         switch (myBoard.getSquareType(i)) {
             case SHIP:
@@ -77,14 +77,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void syncBoard(int i) {
-        while (myBoard.playing()){
-            if (opBoard.getSquareType(i) == SquareType.SHIP) {
+    private void syncBoard() {
+        for (int i =0; i< squares.length;i++){
+            if(opBoard.getSquareType(i) == SquareType.SHIP){
                 myBoard.setSquareType(i, SquareType.OP_SHIP);
+            } else if(opBoard.getSquareType(i) == SquareType.WRECK){
+                myBoard.setSquareType(i, SquareType.OP_WRECK);
             }
-            return;
+            while (myBoard.playing()){
+                return;
+            }
+            lastActivity();
         }
-        lastActivity();
     }
 
     public void setUpActionClicks() {
@@ -212,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
                             ImageButton highLighted = (ImageButton) findViewById(squares[(int) circle.get(j)]);
                             updateView((int) circle.get(j));
                             final int finalJ = j;
+                            removeOnClickListeners();
                             highLighted.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -272,6 +277,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void radar() {
         setInfo("radar");
+        syncBoard();
         removeOnClickListeners();
         for (int i = 0; i < squares.length; i++) {
             final ImageButton iBtn = (ImageButton) findViewById(squares[i]);
@@ -284,17 +290,8 @@ public class MainActivity extends AppCompatActivity {
                         for (int j = 0; j < circle.size(); j++){
                             int square = (int) circle.get(j);
                             myBoard.highLight(square, true);
-                            if(opBoard.getSquareType(square) == SquareType.SHIP && !opBoard.invisible){
-                                myBoard.setSquareType(square, SquareType.OP_SHIP);
-                                updateView(square);
-                                TextView desc = (TextView) findViewById(R.id.action_description);
-                                desc.setText(R.string.ship_found);
-                            } else {
-                                myBoard.highLight(square, true);
-                                updateView(square);
-                                TextView desc = (TextView) findViewById(R.id.action_description);
-                                desc.setText("No enemy ships round here");
-                            }
+                            updateView(square);
+                            removeOnClickListeners();
                         }
                     }
                 });

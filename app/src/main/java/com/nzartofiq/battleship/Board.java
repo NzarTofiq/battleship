@@ -141,17 +141,6 @@ public class Board {
     }
 
     /**
-     * sets the active squares back to free
-     */
-    public void normalize() {
-        for(int i= 0; i< MAX; i++){
-            if (squareTypes[i] == AVAILABLE) {
-                setSquareType(i, FREE);
-            }
-        }
-    }
-
-    /**
      * @param pos
      * @param disp if radar requires to use this method then enemy ships are displayed
      */

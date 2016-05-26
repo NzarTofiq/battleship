@@ -3,6 +3,7 @@ package com.nzartofiq.battleship;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
      * updates the board view
      */
     public void updateViewAll() {
+        syncBoard();
         for (int i = 0; i < squares.length; i++) {
             updateView(i);
         }
@@ -193,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
      * moves a ship from one square to another
      */
     private void move() {
+        syncBoard();
         setInfo("move");
         updateViewAll();
         removeOnClickListeners();
@@ -215,7 +218,6 @@ public class MainActivity extends AppCompatActivity {
                                         myBoard.setSquareType(newPos, SquareType.SHIP);
                                         updateView(newPos);
                                         removeOnClickListeners();
-                                        Communication.opTurn(myBoard);
                                     }
                                 });
                             }
@@ -231,6 +233,7 @@ public class MainActivity extends AppCompatActivity {
      * relative to the ship
      */
     private void torpedo() {
+        syncBoard();
         setInfo("torpedo");
         removeOnClickListeners();
         for (int i = 0; i < squares.length; i++) {
@@ -242,19 +245,20 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         final ArrayList circle = myBoard.getCircle(finalI);
                         for (int j = 0; j < circle.size(); j++) {
-                            myBoard.highLight((int) circle.get(j), false);
-                            ImageButton highLighted = (ImageButton) findViewById(squares[(int) circle.get(j)]);
-                            updateView((int) circle.get(j));
-                            final int finalJ = j;
-                            removeOnClickListeners();
+                            final int finalJ = (int) circle.get(j);
+                            Log.d("final j", String.valueOf(finalJ));
+                            ImageButton highLighted = (ImageButton) findViewById(squares[finalJ]);
+                            myBoard.highLight(finalJ, false);
+                            opBoard.highLight(finalJ, false);
+                            updateViewAll();
                             highLighted.setOnClickListener(new View.OnClickListener() {
                                 @Override
-                                public void onClick(View view) {
-                                    myBoard.fireAt((int) circle.get(finalJ));
-                                    myBoard.normalize();
-                                    updateView((int) circle.get(finalJ));
+                                public void onClick(View v) {
+                                    Log.d("final j clicked", String.valueOf(finalJ));
+                                    myBoard.fireAt(finalJ);
+                                    opBoard.fireAt(finalJ);
+                                    updateViewAll();
                                     removeOnClickListeners();
-                                    Communication.opTurn(myBoard);
                                 }
                             });
                         }
@@ -268,6 +272,7 @@ public class MainActivity extends AppCompatActivity {
      * fires at any square on the board
      */
     private void missile() {
+        syncBoard();
         setInfo("missile");
         for (int i = 0; i < squares.length; i++) {
             ImageButton iBtn = (ImageButton) findViewById(squares[i]);
@@ -276,10 +281,9 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     myBoard.fireAt(finalI);
-                    myBoard.normalize();
-        updateViewAll();
-        removeOnClickListeners();
-        Communication.opTurn(myBoard);;
+                    opBoard.fireAt(finalI);
+                    updateViewAll();
+                    removeOnClickListeners();
                 }
             });
         }
@@ -292,6 +296,7 @@ public class MainActivity extends AppCompatActivity {
      * can only be used once
      */
     private void bombard() {
+        syncBoard();
         setInfo("bombard");
         removeOnClickListeners();
         for (int i= 0; i< squares.length; i++) {
@@ -303,12 +308,11 @@ public class MainActivity extends AppCompatActivity {
                     ArrayList circle = myBoard.getCircle(finalI);
                     for (int j = 0; j < circle.size(); j++){
                         myBoard.fireAt((int) circle.get(j));
+                        opBoard.fireAt((int) circle.get(j));
                         findViewById(R.id.bombard).setEnabled(false);
                     }
-                    myBoard.normalize();
                     updateViewAll();
                     removeOnClickListeners();
-                    Communication.opTurn(myBoard);
                 }
             });
         }
@@ -333,9 +337,10 @@ public class MainActivity extends AppCompatActivity {
                         for (int j = 0; j < circle.size(); j++){
                             int square = (int) circle.get(j);
                             myBoard.highLight(square, true);
-                            updateView(square);
-                            removeOnClickListeners();
+                            opBoard.highLight(square, true);
                         }
+                        updateViewAll();
+                        removeOnClickListeners();
                     }
                 });
             }
@@ -348,10 +353,8 @@ public class MainActivity extends AppCompatActivity {
     private void invisible() {
         setInfo("invisible");
         myBoard.invisible = true;
-        myBoard.normalize();
         updateViewAll();
         removeOnClickListeners();
-        Communication.opTurn(myBoard);;
     }
 
     /**
@@ -362,6 +365,7 @@ public class MainActivity extends AppCompatActivity {
             ImageButton iBtn = (ImageButton) findViewById(square);
             iBtn.setOnClickListener(null);
         }
+        Communication.opTurn(myBoard);
     }
 
     /**

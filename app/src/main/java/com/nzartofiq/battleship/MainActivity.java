@@ -31,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
     private Board opBoard = new Board();
     private String name;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,16 +45,23 @@ public class MainActivity extends AppCompatActivity {
         updateViewAll();
     }
 
+    /**
+     * updates the board view
+     */
     public void updateViewAll() {
         for (int i = 0; i < squares.length; i++) {
             updateView(i);
         }
     }
 
-    public void updateView(int i) {
+    /**
+     *
+      * @param pos
+     */
+    public void updateView(int pos) {
         syncBoard();
-        ImageButton iBtn = (ImageButton) findViewById(squares[i]);
-        switch (myBoard.getSquareType(i)) {
+        ImageButton iBtn = (ImageButton) findViewById(squares[pos]);
+        switch (myBoard.getSquareType(pos)) {
             case SHIP:
                 iBtn.setImageResource(R.drawable.ship);
                 break;
@@ -77,6 +88,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * synchronises my board to opponent's board
+     * so the view shows only what is required
+     */
     private void syncBoard() {
         for (int i =0; i< squares.length;i++){
             if(opBoard.getSquareType(i) == SquareType.SHIP){
@@ -84,13 +99,15 @@ public class MainActivity extends AppCompatActivity {
             } else if(opBoard.getSquareType(i) == SquareType.WRECK){
                 myBoard.setSquareType(i, SquareType.OP_WRECK);
             }
-            while (myBoard.playing()){
-                return;
+            if (!myBoard.playing()) {
+                lastActivity();
             }
-            lastActivity();
         }
     }
 
+    /**
+     * sets up what happens when an action button is clicked or tapped on
+     */
     public void setUpActionClicks() {
         for (int actionBtn : actionBtns) {
             findViewById(actionBtn).setOnClickListener(new View.OnClickListener() {
@@ -124,6 +141,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * sets up what to show to help the player make a decision
+     * on where to click next
+     * also shows information about the action selected
+     * @param type
+     */
     private void setInfo(String type) {
         ImageView img = (ImageView) findViewById(R.id.action_image);
         TextView header = (TextView) findViewById(R.id.action_header);
@@ -166,6 +189,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * moves a ship from one square to another
+     */
     private void move() {
         setInfo("move");
         updateViewAll();
@@ -200,6 +226,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * fires a torpedo from a selected ship to a selected square
+     * relative to the ship
+     */
     private void torpedo() {
         setInfo("torpedo");
         removeOnClickListeners();
@@ -234,6 +264,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * fires at any square on the board
+     */
     private void missile() {
         setInfo("missile");
         for (int i = 0; i < squares.length; i++) {
@@ -252,6 +285,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * fires at an area
+     * when a square is clicked the square itself and 2 suare radus is burnt out
+     * can be fired at anywhere on the grid
+     * can only be used once
+     */
     private void bombard() {
         setInfo("bombard");
         removeOnClickListeners();
@@ -275,6 +314,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * highlights a radius area around one of my ships
+     * if there are any enemy ships, their state is changed to opponent ship displayed
+     */
     private void radar() {
         setInfo("radar");
         syncBoard();
@@ -299,6 +342,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * makes my ships invisible to enemy radar
+     */
     private void invisible() {
         setInfo("invisible");
         myBoard.invisible = true;
@@ -308,6 +354,9 @@ public class MainActivity extends AppCompatActivity {
         Communication.opTurn(myBoard);;
     }
 
+    /**
+     * removes onClick event listeners on all the squares of the grid
+     */
     private void removeOnClickListeners() {
         for (int square : squares) {
             ImageButton iBtn = (ImageButton) findViewById(square);
@@ -315,6 +364,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * loads last activity
+     */
     private void lastActivity() {
         Intent intent = new Intent(this, LastActivity.class);
         TextView textMsg = (TextView) findViewById(R.id.goodByMsg);

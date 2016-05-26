@@ -19,7 +19,9 @@ public class Board {
     private ArrayList circle;
     public boolean invisible = false;
 
-    //constructor
+    /**
+     * Constructor
+     */
     public Board() {
         ArrayList<Integer> r = getRandomNumbers();
         for (int i = 0; i < MAX; i++) {
@@ -31,14 +33,28 @@ public class Board {
         }
     }
 
-    public SquareType getSquareType(int i) {
-        return squareTypes[i];
+    /**
+     *
+     * @param pos
+     * @return
+     */
+    public SquareType getSquareType(int pos) {
+        return squareTypes[pos];
     }
 
-    public void setSquareType(int i, SquareType squareType) {
-        squareTypes[i] = squareType;
+    /**
+     *
+     * @param pos
+     * @param squareType
+     */
+    public void setSquareType(int pos, SquareType squareType) {
+        squareTypes[pos] = squareType;
     }
 
+    /**
+     *
+     * @param pos
+     */
     public void fireAt(int pos) {
         switch (squareTypes[pos]) {
             case FREE:
@@ -60,6 +76,10 @@ public class Board {
         }
     }
 
+    /**
+     *
+     * @return ArrayList<int>
+     */
     private ArrayList getRandomNumbers() {
         ArrayList randoms = new ArrayList();
         Random r = new Random();
@@ -72,6 +92,11 @@ public class Board {
         return randoms;
     }
 
+    /**
+     *
+     * @param centerPos
+     * @return
+     */
     public ArrayList getCircle(int centerPos) {
         if(centerPos >= MAX){
             centerPos = MAX - 1;
@@ -96,9 +121,13 @@ public class Board {
         return circle;
     }
 
-    private void push(int i) {
-        if (i >= 0 && i < MAX && !circle.contains(i)){
-            circle.add(i);
+    /**
+     *
+     * @param pos
+     */
+    private void push(int pos) {
+        if (pos >= 0 && pos < MAX && !circle.contains(pos)){
+            circle.add(pos);
         }
     }
 
@@ -111,6 +140,9 @@ public class Board {
         return false;
     }
 
+    /**
+     * sets the active squares back to free
+     */
     public void normalize() {
         for(int i= 0; i< MAX; i++){
             if (squareTypes[i] == AVAILABLE) {
@@ -118,16 +150,21 @@ public class Board {
             }
         }
     }
-    public void highLight(int i, boolean disp){
+
+    /**
+     * @param pos
+     * @param disp if radar requires to use this method then enemy ships are displayed
+     */
+    public void highLight(int pos, boolean disp){
         if(disp){
-            if(squareTypes[i] == FREE) {
-                setSquareType(i, AVAILABLE);
-            } else if (squareTypes[i] == OP_SHIP && disp){
-                setSquareType(i, OP_SHIP_DISP);
+            if(squareTypes[pos] == FREE) {
+                setSquareType(pos, AVAILABLE);
+            } else if (squareTypes[pos] == OP_SHIP && disp){
+                setSquareType(pos, OP_SHIP_DISP);
             }
         } else {
-            if(squareTypes[i] == FREE || squareTypes[i] == OP_SHIP) {
-                setSquareType(i, AVAILABLE);
+            if(squareTypes[pos] == FREE || squareTypes[pos] == OP_SHIP) {
+                setSquareType(pos, AVAILABLE);
             }
         }
     }

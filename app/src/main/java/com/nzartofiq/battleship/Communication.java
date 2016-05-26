@@ -11,6 +11,10 @@ public class Communication {
 
     private static Gson gson;
 
+    /**
+     *
+     * @param myBoard
+     */
     public static void opTurn(Board myBoard) {
         gson = new Gson();
         gson.toJson(myBoard);

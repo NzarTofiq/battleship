@@ -11,6 +11,10 @@ public class LastActivity extends AppCompatActivity {
 
     String name;
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +27,9 @@ public class LastActivity extends AppCompatActivity {
         setupTxtMsg();
     }
 
+    /**
+     *
+     */
     private void setupTxtMsg() {
         TextView nameText = (TextView) findViewById(R.id.goodByMsg);
         nameText.setText("Goodbye " + name);
@@ -30,6 +37,9 @@ public class LastActivity extends AppCompatActivity {
         Toast.makeText(context, "Game Over", Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     *
+     */
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(LastActivity.this, LastActivity.class);
